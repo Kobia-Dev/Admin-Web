@@ -1,0 +1,64 @@
+<div class="row">
+
+    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 mb-2">
+        <img src="/assets/images/logo.png" width="60px" height="45px" class="px-2 mx-2" alt="avatar" />
+    </div>
+    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 mb-2 d-flex justify-content-center align-items-center">
+        <span style="font-weight: bold; font-size: 16px;">Product details</span>
+    </div>
+    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 mb-2 d-flex justify-content-end align-items-center">
+        <button mat-icon-button (click)="dialogRef.close()" aria-label="Close dialog">
+            <mat-icon>close</mat-icon>
+        </button>
+    </div>
+
+</div>
+
+<div class="row">
+    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 mb-2">
+        <p class="d-flex justify-content-center align-items-center" style="font-size: 17px; font-weight: 500;">About product</p>
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+            <p >Name: {{rowData.typeOfProduct.typeOfProduct}}
+            </p>
+        </div>
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+            <p >Type: {{rowData.category.productCategory}}
+            </p>
+        </div>
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+            <p >Location: {{rowData.latitude}}, {{rowData.longitude}}
+            </p>
+        </div>
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 centered">
+            <p >Selling point: {{rowData.sellingPoint}}</p>
+        </div>
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 centered">
+            <p >Uploaded: {{rowData.createdAt}}</p>
+        </div>
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 centered">
+            <p >Verified: {{rowData.isVerified}}</p>
+        </div>
+    </div>
+
+    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 mb-2">
+        <p class="d-flex justify-content-center align-items-center" style="font-size: 17px; font-weight: 500;">About farmer</p>
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 centered">
+            <p >Id No: {{rowData.farmer.idNumber}}</p>
+        </div>
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 centered">
+            <p >Name: {{rowData.farmer.user.firstName}} {{rowData.farmer.user.lastName}}</p>
+        </div>
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 centered">
+            <p >Location: {{rowData.farmer.latitude}}, {{rowData.farmer.longitude}}</p>
+        </div>
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 centered">
+            <p >Email: {{rowData.farmer.user.email}}</p>
+        </div>
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 centered">
+            <p >Farmer code: {{rowData.farmer.farmerCode}}</p>
+        </div>
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 centered">
+            <p >Phone: {{rowData.farmer.user.phoneNo}}</p>
+        </div>
+    </div>
+</div>

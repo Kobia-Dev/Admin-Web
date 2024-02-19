@@ -1,0 +1,59 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+  
+  .auth-form-section {
+    max-width: 700px;
+    padding: 20px;
+  }
+  
+  .login-frame {
+    border: 1px solid #218331;
+    padding: 20px;
+  }
+  p {
+    font-family: Lato;
+  }
+  .form-section {
+    margin-bottom: 20px;
+  }
+  
+  .auth-wrapper {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .welcome-msg {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .login-title {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .example-full-width {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  .auth-form-btn {
+    width: 100%;
+  }
+  
+  .container-auth-form-btn {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .flex-sb-m {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  

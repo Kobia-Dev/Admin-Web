@@ -1,0 +1,29 @@
+<div>
+    <form class="col-xl-12 col-lg-12 col-md-12 col-sm-12 m-2" [formGroup]="form">
+        <div class="row">
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
+                <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>Select role</mat-label>
+                    <mat-select (selectionChange)="onSelectRole($event)" formControlName="role" required>
+                        <mat-option *ngFor="let role of roles" [value]="role">{{ role }}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
+                <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>Select region</mat-label>
+                    <mat-select (selectionChange)="onSelectRegion($event)" formControlName="region" required>
+                        <mat-option *ngFor="let region of regions" [value]="region">{{ region }}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+        </div>
+    </form>
+
+    <div>
+        <apx-chart [series]="chartOptions.series" [chart]="chartOptions.chart" [dataLabels]="chartOptions.dataLabels"
+            [plotOptions]="chartOptions.plotOptions" [yaxis]="chartOptions.yaxis" [xaxis]="chartOptions.xaxis"
+            [legend]="chartOptions.legend" [colors]="chartOptions.colors" [grid]="chartOptions.grid"></apx-chart>
+    </div>
+</div>

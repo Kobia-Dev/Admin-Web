@@ -1,0 +1,149 @@
+<div class="addServiceProvider">
+
+    <div class="header">
+        <div>
+            <img src="/assets/images/logo.png" width="60px" height="45px" class="px-2 mx-2" alt="avatar" />
+        </div>
+        <div class="text">
+            Onboard Admin
+        </div>
+        <div>
+            <button mat-icon-button (click)="dialogRef.close()" aria-label="Close dialog">
+                <mat-icon>close</mat-icon>
+            </button>
+        </div>
+    </div>
+
+    <div class="mat-dialog-container">
+        <form class="onboard-form m-2" [formGroup]="adminForm">
+            <div class="row">
+
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 mb-2">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>First Name</mat-label>
+                        <input matInput formControlName="firstname" required />
+                        <mat-icon matSuffix>face</mat-icon>
+                        <mat-error *ngIf="adminForm.get('firstname')?.hasError('required')">
+                            First name is required
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 mb-2">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Last Name</mat-label>
+                        <input matInput formControlName="lastname" required />
+                        <mat-icon matSuffix>account_box</mat-icon>
+                        <mat-error *ngIf="adminForm.get('lastname')?.hasError('required')">
+                            Last name is required
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 mb-2">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Email</mat-label>
+                        <mat-icon matSuffix>mail</mat-icon>
+                        <input matInput formControlName="email" required />
+                        <mat-error
+                            *ngIf="adminForm.get('email')?.hasError('required') || adminForm.get('email')?.touched">
+                            Email is required
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 mb-2">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Password</mat-label>
+                        <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" />
+                        <mat-icon matSuffix (click)="togglePasswordVisibility()">{{hide ? 'visibility_off' :
+                            'visibility'}}</mat-icon>
+                            <mat-error *ngIf="adminForm.get('password')?.hasError('required')">
+                                Password is required
+                              </mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 mb-2">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Enter Phone Number</mat-label>
+                        <input matInput formControlName="phoneNo" required minlength="10" maxlength="10"
+                            pattern="[0-9]*">
+                        <mat-icon matSuffix>phone</mat-icon>
+                        <mat-error *ngIf="adminForm.get('phoneNo')?.hasError('required')">
+                            Phone is required
+                        </mat-error>
+                        <mat-error *ngIf="adminForm.get('phoneNo')?.hasError('minlength')">
+                            Phone must contain only digits
+                        </mat-error>
+                        <mat-error *ngIf="adminForm.get('phoneNo')?.hasError('maxlength')">
+                            Phone must contain only digits
+                        </mat-error>
+                        <mat-error *ngIf="adminForm.get('phoneNo')?.hasError('pattern')">
+                            Phone must contain only digits
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 mb-2">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Select role</mat-label>
+                        <mat-select formControlName="role" required>
+                            <mat-option value="ADMIN">Admin</mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="adminForm.get('role')?.hasError('required')">
+                            Role is required
+                        </mat-error>
+
+                    </mat-form-field>
+                </div>
+
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 mb-2">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Id No</mat-label>
+                        <input matInput formControlName="idNo" required />
+                        <mat-icon matSuffix>account_circle</mat-icon>
+                        <mat-error *ngIf="adminForm.get('idNo')?.hasError('required')">
+                            Id No is required
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 mb-2">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Select Gender</mat-label>
+                        <mat-select formControlName="gender" required>
+                            <mat-option value="MALE">Male</mat-option>
+                            <mat-option value="MALE">Female</mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="adminForm.get('gender')?.hasError('required')">
+                            Gender is required
+                        </mat-error>
+
+                    </mat-form-field>
+                </div>
+
+                <!-- <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 mb-2">
+                    <p>Select profile picture</p>
+                    <div class="center">
+                        <input type="file" (change)="onSelectedFile($event)" accept="image/*">
+                    </div>
+                </div> -->
+
+                <div class="row">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
+                        <div class="example-button-row" align="end">
+                            <button mat-raised-button color="primary" [disabled]="!adminForm.valid" (click)="submit()">
+                                Save
+                            </button>
+                            <button mat-raised-button color="warn" (click)="onClick()" tabindex="-1">
+                                Cancel
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </form>
+    </div>
+</div>

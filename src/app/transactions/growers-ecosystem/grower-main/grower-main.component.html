@@ -1,0 +1,43 @@
+<section class="content">
+    <div class="content-block">
+        <div class="block-header">
+            <app-breadcrumb [title]="'Growers ecosystem transactions'" [items]="['Transactions']"
+                [active_item]="'Growers'">
+            </app-breadcrumb>
+        </div>
+        
+        <div class="row">
+            <!-- <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
+                <mat-card>
+                    <mat-card-content>
+                        <app-all-transactions></app-all-transactions>
+                    </mat-card-content>
+                </mat-card>
+            </div> -->
+            
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 mb-2">
+                <mat-card>
+                    <mat-card-content>
+                        <app-farmer-agrodealer></app-farmer-agrodealer>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 mb-2">
+                <mat-card>
+                    <mat-card-content>
+                        <app-farmer-driver></app-farmer-driver>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 mb-2">
+                <mat-card>
+                    <mat-card-content>
+                        <app-farmer-service-provider></app-farmer-service-provider>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+</section>

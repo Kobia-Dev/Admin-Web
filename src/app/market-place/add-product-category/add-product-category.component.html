@@ -1,0 +1,56 @@
+<div class="row">
+    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 mb-2">
+        <img src="/assets/images/logo.png" width="60px" height="45px" class="px-2 mx-2" alt="avatar" />
+    </div>
+    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 mb-2 d-flex justify-content-center align-items-center">
+        <span style="font-weight: bold; font-size: 16px;">Add Product Category</span>
+    </div>
+    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 mb-2 d-flex justify-content-end align-items-center">
+        <button mat-icon-button (click)="dialogRef.close()" aria-label="Close dialog">
+            <mat-icon>close</mat-icon>
+        </button>
+    </div>
+    
+
+    <form class="onboard-form m-2" [formGroup]="prodForm">
+        <div class="row">
+
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
+                <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>Product Category</mat-label>
+                    <input matInput formControlName="productCategory" required />
+                    <mat-icon matSuffix>format_align_justify</mat-icon>
+                    <mat-error *ngIf="prodForm.get('productCategory')?.hasError('required')">
+                        Product category is required
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
+                <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>Product Description</mat-label>
+                    <input matInput formControlName="description" required />
+                    <mat-icon matSuffix>short_text</mat-icon>
+                    <mat-error *ngIf="prodForm.get('description')?.hasError('required')">
+                        Product Description is required
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+            <div class="row">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
+                    <div class="example-button-row" align="end">
+                        <button mat-raised-button color="primary" [disabled]="!prodForm.valid" (click)="submit()">
+                            Save
+                        </button>
+                        <button mat-raised-button color="warn" (click)="onClick()" tabindex="-1">
+                            Cancel
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+

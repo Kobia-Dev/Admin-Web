@@ -1,0 +1,74 @@
+<div style="margin: 12px;">
+
+    <div class="row align-items-center">
+        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3">
+            <p> {{agrodealerProducts?.length}} products found. </p>
+        </div>
+
+        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 ">
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Status</mat-label>
+                <mat-select (selectionChange)="selectVerified($event)">
+                    <mat-option *ngFor="let item of status" [value]="item">{{ item }}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 ">
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Availability</mat-label>
+                <mat-select (selectionChange)="selectOnstock($event)">
+                    <mat-option *ngFor="let item of availability" [value]="item">{{ item }}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 ">
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Selling point</mat-label>
+                <mat-select (selectionChange)="selectSellingPoint($event)">
+                    <mat-option *ngFor="let item of market" [value]="item">{{ item }}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+
+    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 mb-2" *ngFor="">
+        <mat-card class="mat-elevation-z4">
+            <mat-card-content>
+                <div class="row">
+
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 image-container">
+                        <ng-container *ngIf="product.displayImages && product.displayImages.length > 0">
+                            <img [src]="base64StringToDataUrl(product.displayImages[0].displayImage, 'image/png')"
+                                alt="Product Image">
+                        </ng-container>
+                    </div>
+
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 centered">
+                        <p class="reduce-margins">
+                            {{product.typeOfProduct.typeOfProduct}}>>{{product.category.productCategory}}</p>
+                    </div>
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 centered">
+                        <p class="text"> Ksh: {{product.pricePerUnit}} per {{product.unitOfMeasurements}}</p>
+                    </div>
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 centered">
+                        <p class="reduce-margins">Units available: {{product.unitsAvailable}}</p>
+                    </div>
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 centered">
+                        <p class="reduce-margins">Location: {{product.sellingPoint}}</p>
+                    </div>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
+
+    <!-- <div *ngIf="isLoading" class="tbl-spinner">
+            <mat-progress-spinner color="primary" [diameter]="40" mode="indeterminate">
+            </mat-progress-spinner>
+        </div> -->
+
+</div>

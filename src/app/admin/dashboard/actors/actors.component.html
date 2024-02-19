@@ -1,0 +1,64 @@
+<section class="content">
+    <div class="content-block">
+        <div class="block-header">
+            <!-- breadcrumb -->
+            <app-breadcrumb [title]="'Dashboard'" [items]="['Home']" [active_item]="'Dashboard'">
+            </app-breadcrumb>
+        </div>
+
+        <mat-card class="mb-4">
+            <mat-card-content>
+                <app-gen-widgets></app-gen-widgets>
+            </mat-card-content>
+        </mat-card>
+
+        <div class="row mb-4">
+
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 mb-4">
+                <mat-card>
+                    <mat-card-content>
+                        <p class="m-b-0" style="font-size: 17px; font-weight: 500;">Actors Onboarded</p>
+                        <apx-chart *ngIf="chartOptions.series" [series]="chartOptions.series" [chart]="chartOptions.chart"
+                            [dataLabels]="chartOptions.dataLabels" [plotOptions]="chartOptions.plotOptions"
+                            [yaxis]="chartOptions.yaxis" [xaxis]="chartOptions.xaxis" [legend]="chartOptions.legend"
+                            [colors]="chartOptions.colors" [grid]="chartOptions.grid"></apx-chart>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 mb-4">
+                <mat-card>
+                    <mat-card-content>
+                        <app-actor-per-region></app-actor-per-region>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 mb-4">
+                <mat-card>
+                    <mat-card-content>
+                        <app-mixed-transactions-bar></app-mixed-transactions-bar>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 mb-4">
+                <mat-card>
+                    <mat-card-content>
+                        <app-transactions></app-transactions>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 mb-4">
+                <mat-card>
+                    <mat-card-content>
+                        <app-customer-transactions></app-customer-transactions>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+
+        </div>
+
+    </div>
+</section>

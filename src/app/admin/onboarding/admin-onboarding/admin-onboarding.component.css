@@ -1,0 +1,44 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 15px;
+}
+
+.example-button-row {
+    justify-content: space-between;
+}
+
+.text {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.onboard-form {
+    margin: 30px;
+}
+
+.example-full-width {
+    width: 100%;
+}
+
+.mat-dialog-container {
+    overflow: hidden;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.center {
+    display: flex;
+    align-items: center;
+	justify-content: center;
+}
+.btn{
+    width: 80%;
+    background-color: #9B2827;
+    color: white;
+    margin-bottom: 20px;
+    /* padding: 10px 20px; */
+    border-radius: 4px;
+    font-size: 1.2em;
+  }

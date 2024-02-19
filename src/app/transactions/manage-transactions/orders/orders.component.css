@@ -1,0 +1,22 @@
+  .btn{
+    width: 100%;
+    background-color: #9B2827;
+    margin-bottom: 20px;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-size: 1.2em;
+  }
+
+  .div-section{
+    border: 0.25px solid #3f3f3f;
+  }
+
+  .err-btn{
+    width: 25%;
+    background-color: #e7582d;
+    color: white;
+    margin-bottom: 20px;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-size: 1.2em;
+  }

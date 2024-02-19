@@ -1,0 +1,33 @@
+<section class="content">
+    <div class="content-block">
+        <div class="block-header">
+            <app-breadcrumb [title]="'Market ecosystem transactions'" [items]="['Market']"
+                [active_item]="'Transactions'">
+            </app-breadcrumb>
+        </div>
+        <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
+                <mat-card>
+                    <mat-card-content>
+                        <app-all-market-transactions></app-all-market-transactions>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 mb-2">
+                <mat-card>
+                    <mat-card-content>
+                        <app-customer-farmer></app-customer-farmer>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 mb-2">
+                <mat-card>
+                    <mat-card-content>
+                        <app-customer-driver></app-customer-driver>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+</section>

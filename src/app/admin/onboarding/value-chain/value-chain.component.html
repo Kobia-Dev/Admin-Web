@@ -1,0 +1,59 @@
+<div class="addServiceProvider">
+
+    <div class="header">
+        <div>
+            <img src="/assets/images/logo.png" width="60px" height="45px" class="px-2 mx-2" alt="avatar" />
+        </div>
+        <div class="text">
+            Onboard Value Chain
+        </div>
+        <div>
+            <button mat-icon-button (click)="dialogRef.close()" aria-label="Close dialog">
+                <mat-icon>close</mat-icon>
+            </button>
+        </div>
+    </div>
+
+    <div class="mat-dialog-container">
+        <form class="validate-form m-2" [formGroup]="valueChainForm">
+            <div class="row">
+
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Value Chain</mat-label>
+                        <input matInput formControlName="valueName" />
+                        <mat-icon matSuffix>face</mat-icon>
+                        <mat-error *ngIf="valueChainForm.get('valueName')?.hasError('required')">
+                            Value name is required
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Description</mat-label>
+                        <input matInput formControlName="description" />
+                        <mat-icon matSuffix>short_text</mat-icon>
+                        <mat-error *ngIf="valueChainForm.get('description')?.hasError('required')">
+                            Description is required
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
+                    <div class="example-button-row" align="end">
+                        <button mat-raised-button color="primary" [disabled]="!valueChainForm.valid"
+                            (click)="submit()">
+                            Save
+                        </button>
+                        <button mat-raised-button color="warn" (click)="onClick()" tabindex="-1">
+                            Cancel
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

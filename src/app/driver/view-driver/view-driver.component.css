@@ -1,0 +1,8 @@
+.center-text {
+    text-align: center; /* Horizontally center the text */
+    align-items: center; /* Vertically center the text */
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+}

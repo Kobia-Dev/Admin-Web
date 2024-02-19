@@ -1,0 +1,303 @@
+<div class="addServiceProvider">
+
+    <div class="header">
+        <div>
+            <img src="/assets/images/logo.png" width="60px" height="45px" class="px-2 mx-2" alt="avatar" />
+        </div>
+        <div class="text">
+            Onboard Manufacturer
+        </div>
+        <div>
+            <button mat-icon-button (click)="dialogRef.close()" aria-label="Close dialog">
+                <mat-icon>close</mat-icon>
+            </button>
+        </div>
+    </div>
+
+    <div class="mat-dialog-container">
+        <form class="onboard-form m-2" [formGroup]="onBoardManufacturerForm" >
+            <div class="row">
+
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 mb-2">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>First Name</mat-label>
+                        <input matInput formControlName="firstname" required />
+                        <mat-icon matSuffix>face</mat-icon>
+                        <mat-error *ngIf="onBoardManufacturerForm.get('firstname')?.hasError('required')">
+                            First name is required
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 mb-2">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Last Name</mat-label>
+                        <input matInput formControlName="lastname" required />
+                        <mat-icon matSuffix>account_box</mat-icon>
+                        <mat-error *ngIf="onBoardManufacturerForm.get('lastname')?.hasError('required')">
+                            Last name is required
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 mb-2">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Email</mat-label>
+                        <mat-icon matSuffix>mail</mat-icon>
+                        <input matInput formControlName="email" required />
+                        <mat-error
+                            *ngIf="onBoardManufacturerForm.get('email')?.hasError('required') || onBoardManufacturerForm.get('email')?.touched">
+                            Email is required
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 mb-2">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Password</mat-label>
+                        <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" />
+                        <mat-icon matSuffix (click)="togglePasswordVisibility()">{{hide ? 'visibility_off' :
+                            'visibility'}}</mat-icon>
+                            <mat-error *ngIf="onBoardManufacturerForm.get('password')?.hasError('required')">
+                                Password is required
+                              </mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 mb-2">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Phone No</mat-label>
+                        <input matInput formControlName="phoneNo" required minlength="10" maxlength="10"
+                            pattern="[0-9]*">
+                        <mat-icon matSuffix>phone</mat-icon>
+                        <mat-error *ngIf="onBoardManufacturerForm.get('phoneNo')?.hasError('required')">
+                            Phone is required
+                        </mat-error>
+                        <mat-error *ngIf="onBoardManufacturerForm.get('phoneNo')?.hasError('minlength')">
+                            Phone must be 10 digits long
+                        </mat-error>
+                        <mat-error *ngIf="onBoardManufacturerForm.get('phoneNo')?.hasError('maxlength')">
+                            Phone cannot exceed 10 digits
+                        </mat-error>
+                        <mat-error *ngIf="onBoardManufacturerForm.get('phoneNo')?.hasError('pattern')">
+                            Phone must contain only digits
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 mb-2">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Select role</mat-label>
+                        <mat-select formControlName="role" required>
+                            <mat-option value="MANUFACTURER">Manufacturer</mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="onBoardManufacturerForm.get('role')?.hasError('required')">
+                            Role is required
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 mb-2">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Id No</mat-label>
+                        <input matInput formControlName="idNo" required />
+                        <mat-icon matSuffix>account_circle</mat-icon>
+                        <mat-error *ngIf="onBoardManufacturerForm.get('idNo')?.hasError('required')">
+                            Id No is required
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 mb-2">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Select Gender</mat-label>
+                        <mat-select formControlName="gender" required>
+                            <mat-option value="MALE">Male</mat-option>
+                            <mat-option value="FEMALE">Female</mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="onBoardManufacturerForm.get('gender')?.hasError('required')">
+                            Gender is required
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 mb-2">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Licence No</mat-label>
+                        <mat-icon matSuffix>business_center</mat-icon>
+                        <input matInput formControlName="licenceNo" required />
+                        <mat-error *ngIf="onBoardManufacturerForm.get('licenceNo')?.hasError('required')">
+                            Licence is required
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 mb-2">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Manufacturer Name</mat-label>
+                        <mat-icon matSuffix>work</mat-icon>
+                        <input matInput formControlName="manufacturerName" required />
+                        <mat-error *ngIf="onBoardManufacturerForm.get('manufacturerName')?.hasError('required')">
+                            Manufacturer Name is required
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 mb-2">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Manufacturer Email</mat-label>
+                        <input matInput formControlName="manufacturerEmail" required />
+                        <mat-icon matSuffix>mail</mat-icon>
+                        <mat-error *ngIf="onBoardManufacturerForm.get('manufacturerEmail')?.hasError('required')">
+                            Manufacturer Email
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 mb-2">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Manufacturer phone</mat-label>
+                        <input matInput formControlName="manufacturerPhone" required minlength="10" maxlength="10"
+                            pattern="[0-9]*">
+                        <mat-icon matSuffix>phone</mat-icon>
+                        <mat-error *ngIf="onBoardManufacturerForm.get('manufacturerPhone')?.hasError('required')">
+                            Phone number is required
+                        </mat-error>
+                        <mat-error *ngIf="onBoardManufacturerForm.get('manufacturerPhone')?.hasError('minlength')">
+                            Phone number must be at least 10 digits long
+                        </mat-error>
+                        <mat-error *ngIf="onBoardManufacturerForm.get('manufacturerPhone')?.hasError('maxlength')">
+                            Phone number cannot exceed 10 digits
+                        </mat-error>
+                        <mat-error *ngIf="onBoardManufacturerForm.get('manufacturerPhone')?.hasError('pattern')">
+                            Phone number must contain only digits
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 mb-2">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Manufacturer description</mat-label>
+                        <mat-icon matSuffix>short_text</mat-icon>
+                        <input matInput formControlName="manufacturerDescr" required />
+                        <mat-error *ngIf="onBoardManufacturerForm.get('manufacturerDescr')?.hasError('required')">
+                            Description is required
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 mb-2">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Manufacturing category</mat-label>
+                        <mat-select formControlName="manufacturerCategory" required>
+                            <mat-option *ngFor="let category of this.manufacturingCategory" [value]="category.id">
+                                {{ category.category }}
+                              </mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="onBoardManufacturerForm.get('manufacturerCategory')?.hasError('required')">
+                            Category is required
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 mb-2">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Manufacturing Sub-category</mat-label>
+                        <mat-select formControlName="manufacturerSubCategory" required>
+                            <mat-option *ngFor="let subCategory of this.manufacturingSubCategory" [value]="subCategory.id">
+                                {{ subCategory.subCategory }}
+                              </mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="onBoardManufacturerForm.get('manufacturerSubCategory')?.hasError('required')">
+                            Sub-category is required
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+
+                <!-- <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 mb-2">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Opening hours</mat-label>
+                        <input type="text" matInput [ngxMatTimepicker]="timepicker" [format]="24" [required]="required"
+                            readonly formControlName="workingHourStart" required />
+                        <mat-icon matPrefix
+                            *ngIf="onBoardManufacturerForm.get('workingHourStart')?.value && !onBoardManufacturerForm.get('workingHourStart')?.disabled && !required"
+                            (click)="onClear($event)"> close</mat-icon>
+                        <mat-icon matSuffix *ngIf="!onBoardManufacturerForm.get('workingHourStart')?.disabled"
+                            (click)="openFromIcon(timepicker)">schedule</mat-icon>
+                            <mat-error *ngIf="onBoardManufacturerForm.get('workingHourStart')?.hasError('required')">
+                                Opening hours required
+                            </mat-error>
+                    </mat-form-field>
+                    <ngx-mat-timepicker #timepicker [enableKeyboardInput]="true" [max]="maxTime" [min]="minTime">
+                    </ngx-mat-timepicker>
+                </div>
+
+                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 mb-2">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Closing hours</mat-label>
+                        <input type="text" matInput [ngxMatTimepicker]="time" [format]="24" [required]="required"
+                            readonly formControlName="workingHourStop" required />
+                        <mat-icon matPrefix
+                            *ngIf="onBoardManufacturerForm.get('workingHourStop')?.value && !onBoardManufacturerForm.get('workingHoursStop')?.disabled && !required"
+                            (click)="clear($event)"> close</mat-icon>
+                        <mat-icon matSuffix *ngIf="!onBoardManufacturerForm.get('workingHourStop')?.disabled"
+                            (click)="openIcon(time)">schedule</mat-icon>
+                            <mat-error *ngIf="onBoardManufacturerForm.get('workingHourStop')?.hasError('required')">
+                                Opening hours required
+                            </mat-error>
+                    </mat-form-field>
+                    <ngx-mat-timepicker #time [enableKeyboardInput]="true" [max]="maxTime" [min]="minTime">
+                    </ngx-mat-timepicker>
+                </div> -->
+
+                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 mb-2">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Working days</mat-label>
+                        <mat-select formControlName="workingDays" multiple required>
+                            <mat-select-trigger>
+                                {{ onBoardManufacturerForm.get('workingDays')?.value?.[0] || '' }}
+                                <span *ngIf="onBoardManufacturerForm.get('workingDays')?.value?.length > 1"
+                                    class="example-additional-selection">
+                                    (+{{ onBoardManufacturerForm.get('workingDays')?.value?.length - 1 }} {{
+                                    onBoardManufacturerForm.get('workingDays')?.value?.length === 2 ? 'other' :
+                                    'others' }})
+                                </span>
+                            </mat-select-trigger>
+                            <mat-option *ngFor="let day of workingDaysList" [value]="day">{{ day }}</mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="onBoardManufacturerForm.get('workingDays')?.hasError('required')">
+                            Working Days required
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Value chain</mat-label>
+                        <mat-select formControlName="valueChain" required>
+                            <mat-option *ngFor="let vauleChain of this.valueChains" [value]="vauleChain.id">
+                                {{ vauleChain.valueChain }}
+                            </mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="onBoardManufacturerForm.get('valueChain')?.hasError('required')">
+                            Value chain is required
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div class="row">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
+                        <div class="example-button-row" align="end">
+                            <button mat-raised-button color="primary" [disabled]="!onBoardManufacturerForm.valid"  (click)="submit()">
+                                Save
+                            </button>
+                            <button mat-raised-button color="warn" (click)="onClick()" tabindex="-1">
+                                Cancel
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

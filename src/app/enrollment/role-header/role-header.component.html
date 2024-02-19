@@ -1,0 +1,1975 @@
+<section class="content">
+    <div class="content-block">
+  
+      <div class="block-header">
+        <app-breadcrumb [title]="'Enrollment'" [items]="['Home']" [active_item]="'Enrollment'">
+        </app-breadcrumb>
+      </div>
+  
+      <div class="container">
+        <h2>Select Enrollment Type:</h2>
+  
+        <mat-form-field class="example-full-width" appearance="outline">
+          <mat-label>Select role</mat-label>
+          <mat-select (selectionChange)="rolesChange($event)">
+            <mat-option value="farmer">Farmer</mat-option>
+            <mat-option value="regionalManager">Regional Manager</mat-option>
+            <mat-option value="fieldOfficer">Field Officer</mat-option>
+            <mat-option value="sme">SME Enrollment</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+  
+      <ng-container *ngIf="selectedType===roleFarmer">
+        <mat-card>
+          <mat-card-content>
+            <form [formGroup]="farmerForm">
+              <div class="container-fluid">
+                <h1>Farmer Enrollment Form</h1>
+                <form>
+                    <div class="form-group">
+                        <label>1. Date of enrollment</label>
+                        <input type="number" class="form-control">
+                    </div>
+  
+                    <div class="form-group">
+                        <label>2. Please indicate the name of the person keying in data</label>
+                        <input type="text" class="form-control">
+                    </div>
+  
+                    <div class="form-group">
+                        <label>3. Please indicate both your names - Farmer or Representative </label>
+                        <input type="tel" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label>4. Please indicate your sex </label>
+                        <form>
+                            <label>
+                                <input type="radio" name="sex" value="Male">
+                                Male
+                            </label>
+                            <br>
+                            <label>
+                                <input type="radio" name="sex" value="Female">
+                                Female
+                            </label>
+                        </form>
+                    </div>
+  
+                    
+                    <div class="form-group">
+                        <label>5. Please indicate date of birth </label>
+                          <form>
+                        <label for="dob"></label>
+                        <input type="date" id="dob" name="dob" min="1900-01-01" max="2099-12-31">
+                            </form>
+                    </div>
+  
+                    <div class="form-group">
+                        <label>6. Please indicate ID Number</label>
+                        <input type="number" class="form-control">
+                    </div>
+  
+                    
+                    <div class="form-group">
+                        <label>7. Telephone contact</label>
+                        <input type="tel" class="form-control">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>8. Other telephone contact</label>
+                        <input type="tel" class="form-control">
+                    </div>
+  
+  
+                    <div class="form-group">
+                        <label>9. Select County of residence :</label>
+                        <body>
+                            
+                            <select id="countyDropdown">
+                                <option value="" disabled selected></option>
+                                <option value="Nairobi">Nairobi County</option>
+                                <option value="Mombasa">Mombasa County</option>
+                                <option value="Kisumu">Kisumu County</option>
+                                <option value="Nakuru">Nakuru County</option>
+                                <!-- Add more options for the remaining counties -->
+                                <option value="Bomet">Bomet County</option>
+                                <option value="Bungoma">Bungoma County</option>
+                                <option value="Busia">Busia County</option>
+                                <!-- Add the remaining counties here -->
+                                <option value="West Pokot">West Pokot County</option>
+                                <option value="Turkana">Turkana County</option>
+                                <option value="Uasin Gishu">Uasin Gishu County</option>
+                            </select>
+                        </body>                              
+                    </div>
+                    <div class="form-group">
+                        <label>10. Select County of Origin :</label>
+                        <body>
+                            
+                            <select id="countyDropdown">
+                                <option value="" disabled selected></option>
+                                <option value="Nairobi">Nairobi County</option>
+                                <option value="Mombasa">Mombasa County</option>
+                                <option value="Kisumu">Kisumu County</option>
+                                <option value="Nakuru">Nakuru County</option>
+                                <!-- Add more options for the remaining counties -->
+                                <option value="Bomet">Bomet County</option>
+                                <option value="Bungoma">Bungoma County</option>
+                                <option value="Busia">Busia County</option>
+                                <!-- Add the remaining counties here -->
+                                <option value="West Pokot">West Pokot County</option>
+                                <option value="Turkana">Turkana County</option>
+                                <option value="Uasin Gishu">Uasin Gishu County</option>
+                            </select>
+                        </body>                              
+                    </div>
+                    <div class="form-group">
+                        <label>11. Sub-county of Residence  :</label>
+                        <body>
+                        <select id="subCountyDropdown">
+                            <option value="" disabled selected></option>
+                            <option value="Dagoretti North">Dagoretti North</option>
+                            <option value="Dagoretti South">Dagoretti South</option>
+                            <option value="Embakasi Central">Embakasi Central</option>
+                            <option value="Embakasi East">Embakasi East</option>
+                            <option value="Embakasi North">Embakasi North</option>
+                            <option value="Embakasi South">Embakasi South</option>
+                            <option value="Embakasi West">Embakasi West</option>
+                            <option value="Kamukunji">Kamukunji</option>
+                            <option value="Kasarani">Kasarani</option>
+                            <option value="Kibra">Kibra</option>
+                            <option value="Lang'ata">Lang'ata</option>
+                            <option value="Makadara">Makadara</option>
+                            <option value="Mathare">Mathare</option>
+                            <option value="Nairobi West">Nairobi West</option>
+                            <option value="Roysambu">Roysambu</option>
+                            <option value="Ruaraka">Ruaraka</option>
+                            <option value="Starehe">Starehe</option>
+                            <option value="Westlands">Westlands</option>
+                        </select>
+                    </body>
+                    </div>
+  
+                    <div class="form-group">
+                        <label>12. Have you attended any form of schooling </label>
+                        <form>
+                            <label>
+                                <input type="radio" name="attendedSchool" value="yes">
+                                Yes
+                            </label>
+                            <br>
+                            <label>
+                                <input type="radio" name="attendedSchool" value="no">
+                                No
+                            </label>
+                        </form>
+                    </div>
+  
+                    <div class="form-group">
+                        <label>13. Which level of education did you reach?(Tick highest Level of Education)   :</label>
+                    <form>
+                        
+                        <label>
+                            <input type="radio" name="education" value="Primary School - Incomplete">
+                            Primary School - Incomplete
+                        </label>
+                        <br>
+                        <label>
+                            <input type="radio" name="education" value="Primary School - Complete">
+                            Primary School - Complete
+                        </label>
+                        <br>
+                        <label>
+                            <input type="radio" name="education" value="Secondary School - Incomplete">
+                            Secondary School - Incomplete
+                        </label>
+                        <br>
+                        <label>
+                            <input type="radio" name="education" value="Secondary School - Complete">
+                            Secondary School - Complete
+                        </label>
+                        <br>
+                        <label>
+                            <input type="radio" name="education" value="University - Incomplete">
+                            University - Incomplete
+                        </label>
+                        <br>
+                        <label>
+                            <input type="radio" name="education" value="University - Complete">
+                            University - Complete
+                        </label>
+                        <br>
+                        <label>
+                            <input type="radio" name="education" value="Technical College - Incomplete">
+                            Technical College - Incomplete
+                        </label>
+                        <br>
+                        <label>
+                            <input type="radio" name="education" value="Technical College - Complete">
+                            Technical College - Complete
+                        </label>
+                    </form>
+                </div>
+                
+                
+                    <div class="form-group">
+                        <label>14. Have you received any training aimed at improving your farming business?*  </label>
+                        <form>
+                            <label>
+                                <input type="radio" name="receivedtraining" value="yes">
+                                Yes
+                            </label>
+                            <br>
+                            <label>
+                                <input type="radio" name="receivedtraining" value="no">
+                                No
+                            </label>
+                        </form>
+                    </div>
+  
+  
+                    <div class="form-group">
+                        <label>15. If Yes, which one? Tick ALL that apply </label>
+                    <form>
+                        
+                        <label>
+                            <input type="radio" name="farmingbusiness" value="Financial Education ">
+                            Financial Education
+                        </label>
+                        <br>
+                        <label>
+                            <input type="radio" name="farmingbusiness" value="Entrepreneurship Education
+                            ">
+                            Entrepreneurship Education
+                        </label>
+                        <br>
+                        <label>
+                            <input type="radio" name="farmingbusiness" value="Entrepreneurship Education
+                            ">
+                            Entrepreneurship Education
+                        </label>
+                        <br>
+                        <label>
+                            <input type="radio" name="farmingbusiness" value="Livestock production ">
+                            Livestock production
+                        </label>
+                        <br>
+                        <label>
+                            <input type="radio" name="farmingbusiness" value="Agribusiness management"> Agribusiness management                                   
+                            
+                        </label>
+                        
+                    </form>
+                </div>
+  
+                <div class="form-group">
+                    <label>16. Have you received any training from Equity </label>
+                    <form>
+                        <label>
+                            <input type="radio" name="receivedtraining" value="yes">
+                            Yes
+                        </label>
+                        <br>
+                        <label>
+                            <input type="radio" name="receivedtraining" value="no">
+                            No
+                        </label>
+                    </form>
+                </div>
+                <div class="form-group">
+                  <label>17. Which training have you received from Equity? </label>
+                  <br>
+                  <label>
+                      <input type="radio" name="training_type" value="Financial Education"> Financial Education
+                  </label>
+                   <br>
+                  <label>
+                      <input type="radio" name="training_type" value="Entrepreneurship Education"> Entrepreneurship Education
+                  </label>
+                  <br>
+                  <label>
+                      <input type="radio" name="training_type" value="Crop production"> Crop production
+                  </label>
+                  <br>
+          
+                  <label>
+                      <input type="radio" name="training_type" value="Livestock production"> Livestock production
+                  </label>
+                  <br>
+          
+                  <label>
+                      <input type="radio" name="training_type" value="Agribusiness management"> Agribusiness management
+                  </label>
+                  <br>
+          
+                  <label>
+                      <input type="radio" name="training_type" value="Other"> Other
+                      Specify: <input type="text" name="other_training" placeholder="Other training">
+                  </label>
+                  </div>
+  
+                  <div class="form-group">
+                      <label>18. Farm Town</label>
+                      <input type="text" class="form-control">
+                  </div>
+  
+                  <div class="form-group">
+                      <label>19. Select Farm County:</label>
+                      <body>
+                          
+                          <select id="countyDropdown">
+                              <option value="" disabled selected></option>
+                              <option value="Nairobi">Nairobi County</option>
+                              <option value="Mombasa">Mombasa County</option>
+                              <option value="Kisumu">Kisumu County</option>
+                              <option value="Nakuru">Nakuru County</option>
+                              <!-- Add more options for the remaining counties -->
+                              <option value="Bomet">Bomet County</option>
+                              <option value="Bungoma">Bungoma County</option>
+                              <option value="Busia">Busia County</option>
+                              <!-- Add the remaining counties here -->
+                              <option value="West Pokot">West Pokot County</option>
+                              <option value="Turkana">Turkana County</option>
+                              <option value="Uasin Gishu">Uasin Gishu County</option>
+                              </select>
+          
+                      </body>                              
+                  </div>
+  
+                  <div class="form-group">
+                      <label>20. Farm Sub-County</label>
+                      <input type="text" class="form-control">
+                  </div>
+  
+                  <div class="form-group">
+                      <label>21. Farm Ward</label>
+                      <input type="text" class="form-control">
+                  </div>
+  
+                  <div class="form-group">
+                      <label>22. Farm Size [Acres]</label>
+                      <input type="Number" class="form-control">
+                  </div>
+  
+                  <div class="form-group">
+                      <label>23. Do you own this farm? </label>
+                      <form>
+                          <label>
+                              <input type="radio" name="ownFarm" value="yes">
+                               Yes
+                          </label>
+                          <br>
+                          <label>
+                              <input type="radio" name="ownFarm" value="no">
+                               No
+                          </label>
+                      </form>
+                  </div>
+  
+                  <div class="form-group">
+                      <label>24. What is the size [in acres] of the land owned?</label>
+                      <input type="Number" class="form-control">
+                  </div>
+  
+                  <div class="form-group">
+                      <label>25. Do you lease/rent any land? </label>
+                      <form>
+                          <label>
+                              <input type="radio" name="lease/rent" value="yes">
+                               Yes
+                          </label>
+                          <br>
+                          <label>
+                              <input type="radio" name="lease/rent" value="no">
+                               No
+                          </label>
+                      </form>
+                  </div>
+  
+                  <div class="form-group">
+                      <label>26. What size [in acres] of the land leased/rent?</label>
+                      <input type="number" class="form-control">
+                  </div>
+  
+                  <div class="form-group">
+                      <label>27. Farm Cultivated[Acres]</label>
+                      <input type="number" class="form-control">
+                  </div>
+  
+                  <div class="form-group">
+                      <label>28. Years of farming experience</label>
+                      <input type="number" class="form-control">
+                  </div>
+  
+                  <div class="form-group">
+                      <label>29. Do you engage in commercial Livestock  Production[Beef, Dairy, Poultary e.t.c] </label>
+                      <form>
+                          <label>
+                              <input type="radio" name="LivestockProduction" value="yes">
+                               Yes
+                          </label>
+                          <br>
+                          <label>
+                              <input type="radio" name="LivestockProduction" value="no">
+                               No
+                          </label>
+                      </form>
+                  </div>
+  
+                  <div class="form-group">
+                      <label>30. Which Livestock? </label>
+                      <br>
+                      <label>
+                          <input type="radio" name="Livestock" value="Beef"> Beef
+                      </label>
+                       <br>
+                      <label>
+                          <input type="radio" name="Livestock" value="Dairy"> Dairy
+                      </label>
+                      <br>
+                      <label>
+                          <input type="radio" name="Livestock" value="Poultry"> Poultry
+                      </label>
+                      <br>
+                                                                                    
+                      <label>
+                          <input type="radio" name="Livestock" value="Other"> Other
+                          Specify: <input type="text" name="Livestock" placeholder="Other livestock">
+                      </label>
+                      </div>
+  
+                      <div class="form-group">
+                          <label>31. How many of these animals do you own?
+                              <br>
+                              <style>
+                                  p {
+                                      font-family: Arial, sans-serif;
+                                      font-size: 11px;
+                                      color: #333333;
+                                  }
+                              </style>                                           
+                          <body>
+                              <p>(Enter data corresponding to the livestock and unit separated by coma i.e. poultry-10, Dairy-11, Beef- 13 )</p>
+                          </body>
+                              
+                            </label>
+                          <input type="text" class="form-control">
+                      </div>
+  
+                      <div class="form-group">
+                          <label>32. Do you engage in commercial Cereals  Production</label>
+                          <form>
+                              <label>
+                                  <input type="radio" name="LivestockProduction" value="yes">
+                                   Yes
+                              </label>
+                              <br>
+                              <label>
+                                  <input type="radio" name="LivestockProduction" value="no">
+                                   No
+                              </label>
+                          </form>
+                      </div>
+  
+                      <div class="form-group">
+                          <label>33. Which Cereal Crop do you farm? </label>
+                          <br>
+                          <label>
+                              <input type="radio" name="CerealCrop" value="Maize"> Maize
+                          </label>
+                           <br>
+                          <label>
+                              <input type="radio" name="CerealCrop" value="Beans"> Beans
+                          </label>
+                          <br>
+                          <label>
+                              <input type="radio" name="CerealCrop" value="Wheat"> Wheat
+                          </label>
+                          <br>
+                                                                                        
+                          <label>
+                              <input type="radio" name="CerealCrop" value="Other"> Other
+                              Specify: <input type="text" name="CerealCrop" placeholder="Other cereal">
+                          </label>
+                          </div>
+  
+                          <div class="form-group">
+                              <label>34. How many acres of cereal crops do you?
+                                  <br>
+                                  <style>
+                                      p {
+                                          font-family: Arial, sans-serif;
+                                          font-size: 11px;
+                                          color: #333333;
+                                      }
+                                  </style>                                           
+                              <body>
+                                  <p>(Enter data corresponding to the cereal crop and unit separated by coma i.e. Maize-10, Beans-11, Wheat- 13 )</p>
+                              </body>
+                                  
+                                </label>
+                              <input type="text" class="form-control">
+                          </div>
+  
+                          <div class="form-group">
+                              <label>35. Do you engage in commercial Vegetable  Production?</label>
+                              <form>
+                                  <label>
+                                      <input type="radio" name="LivestockProduction" value="yes">
+                                       Yes
+                                  </label>
+                                  <br>
+                                  <label>
+                                      <input type="radio" name="LivestockProduction" value="no">
+                                       No
+                                  </label>
+                              </form>
+                          </div>
+  
+                          <div class="form-group">
+                              <label>36. Which Vegetables do you farm? </label>
+                              <br>
+                              <label>
+                                  <input type="radio" name="Vegetables" value="Irish Potatoes"> Irish Potatoes
+                              </label>
+                               <br>
+                              <label>
+                                  <input type="radio" name="Vegetables" value="Tomatoes"> Tomatoes
+                              </label>
+                              <br>
+                              <label>
+                                  <input type="radio" name="Vegetables" value="Cabbages"> Cabbages
+                              </label>
+                              <br>
+                              <label>
+                                  <input type="radio" name="Vegetables" value="French Beans"> French Beans
+                              </label>
+                              <br>
+                              <label>
+                                  <input type="radio" name="Vegetables" value="Kales"> Kales
+                              </label>
+                              <br>
+                              <label>
+                                  <input type="radio" name="Vegetables" value="Spinach"> Spinach
+                              </label>
+                              <br>
+                                                                                            
+                              <label>
+                                  <input type="radio" name="Vegetables" value="Other"> Other
+                                  Specify: <input type="text" name="Vegetables" placeholder="Other vegetables">
+                              </label>
+                              </div>
+  
+                              <div class="form-group">
+                                  <label>37. How many acres of vegetables do you?
+                                      <br>
+                                      <style>
+                                          p {
+                                              font-family: Arial, sans-serif;
+                                              font-size: 11px;
+                                              color: #333333;
+                                          }
+                                      </style>                                           
+                                  <body>
+                                      <p>(Enter data corresponding to the vegetables and unit separated by coma i.e. Irish Potatoes-10, Tomatoes-11, French Beans- 13 )</p>
+                                  </body>
+                                      
+                                    </label>
+                                  <input type="text" class="form-control">
+                              </div>
+  
+                              <div class="form-group">
+                                  <label>38. Do you engage in commercial Fruit  Production?</label>
+                                  <form>
+                                      <label>
+                                          <input type="radio" name="FruitProduction" value="yes">
+                                           Yes
+                                      </label>
+                                      <br>
+                                      <label>
+                                          <input type="radio" name="FruitProduction" value="no">
+                                           No
+                                      </label>
+                                  </form>
+                              </div>
+  
+                              <div class="form-group">
+                                  <label>39. Which Fruits do you produce? </label>
+                                  <br>
+                                  <label>
+                                      <input type="radio" name="Fruits" value="Maize"> Banana
+                                  </label>
+                                   <br>
+                                  <label>
+                                      <input type="radio" name="Fruits" value="Beans"> Passion Fruits
+                                  </label>
+                                  <br>
+                                  <label>
+                                      <input type="radio" name="Fruits" value="Wheat"> Avocadoes
+                                  </label>
+                                  <br>
+                                                                                                
+                                  <label>
+                                      <input type="radio" name="Fruits" value="Other"> Other
+                                      Specify: <input type="text" name="Fruits" placeholder="Other fruits">
+                                  </label>
+                                  </div>
+  
+                                  <div class="form-group">
+                                      <label>40. How many?
+                                          <br>
+                                          <style>
+                                              p {
+                                                  font-family: Arial, sans-serif;
+                                                  font-size: 11px;
+                                                  color: #333333;
+                                              }
+                                          </style>                                           
+                                      <body>
+                                          <p>(Indicate the quantities Bananas-50stools, Passion-30vines, Avocadoes- 10trees )</p>
+                                      </body>
+                                          
+                                        </label>
+                                      <input type="text" class="form-control">
+                                  </div>
+  
+                                  <div class="form-group">
+                                      <label>41. How many acres?
+                                          <br>
+                                          <style>
+                                              p {
+                                                  font-family: Arial, sans-serif;
+                                                  font-size: 11px;
+                                                  color: #333333;
+                                              }
+                                          </style>                                           
+                                      <body>
+                                          <p>(Indicate the quantities and separate by semi colon i.e. Bananas-5acres; Passion-3acres; e.t.c)</p>
+                                      </body>
+                                          
+                                        </label>
+                                      <input type="text" class="form-control">
+                                  </div>
+  
+                                  <div class="form-group">
+                                      <label>42. Do you sell your produce to aggregators?</label>
+                                      <form>
+                                          <label>
+                                              <input type="radio" name="fruits" value="yes">
+                                               Yes
+                                          </label>
+                                          <br>
+                                          <label>
+                                              <input type="radio" name="fruits" value="no">
+                                               No
+                                          </label>
+                                      </form>
+                                  </div>
+  
+                                  <div class="form-group">
+                                      <label>43. What is the name of the aggregator you sell your produce to?</label>
+                                      <input type="text" class="form-control">
+                                  </div>
+  
+                                  <div class="form-group">
+                                      <label>44. Do you sell your produce to any middlemen or brokers?</label>
+                                      <form>
+                                          <label>
+                                              <input type="radio" name="produce" value="yes">
+                                               Yes
+                                          </label>
+                                          <br>
+                                          <label>
+                                              <input type="radio" name="produce" value="no">
+                                               No
+                                          </label>
+                                      </form>
+                                  </div>
+  
+                                  <div class="form-group">
+                                      <label>45. What is the name of middlemen or broker  you sell your produce to?</label>
+                                      <input type="text" class="form-control">
+                                  </div>
+  
+                                  <div class="form-group">
+                                      <label>46. Do you sell your produce to any group?</label>
+                                      <form>
+                                          <label>
+                                              <input type="radio" name="produce" value="yes">
+                                               Yes
+                                          </label>
+                                          <br>
+                                          <label>
+                                              <input type="radio" name="produce" value="no">
+                                               No
+                                          </label>
+                                      </form>
+                                  </div>
+  
+                                  <div class="form-group">
+                                      <label>47. What is the name of other person or group you sell your produce to?</label>
+                                      <input type="text" class="form-control">
+                                  </div>
+  
+                                  <div class="form-group">
+                                      <label>48. What is the estimated annual income from ALL your farming activities ? </label>
+                                      <br>
+                                      <label>
+                                          <input type="radio" name="income" value="100,000 and below"> 100,000 and below
+                                      </label>
+                                       <br>
+                                      <label>
+                                          <input type="radio" name="income" value="100,001 - 200,000"> 100,001 - 200,000 
+                                      </label>
+                                      <br>
+                                      <label>
+                                          <input type="radio" name="income" value="200,001 - 300,000"> 200,001 - 300,000
+                                      </label>
+                                      <br>
+                                      <label>
+                                          <input type="radio" name="income" value="300,001 - 400,000"> 300,001 - 400,000
+                                      </label>
+                                      <br>
+                                      <label>
+                                          <input type="radio" name="income" value="400,001 - 500,000"> 400,001 - 500,000
+                                      </label>
+                                      <br>
+                                      <label>
+                                          <input type="radio" name="income" value="statement"> I don't earn any income from my farming activities 
+                                      </label>                                                                                                              
+                                      </div>
+  
+                                      <div class="form-group">
+                                          <label>49. What is the estimated annual income LIVESTOCK PRODUCTION in the last year? </label>
+                                          <br>
+                                          <label>
+                                              <input type="radio" name="income" value="100,000 and below"> 100,000 and below
+                                          </label>
+                                           <br>
+                                          <label>
+                                              <input type="radio" name="income" value="100,001 - 200,000"> 100,001 - 200,000 
+                                          </label>
+                                          <br>
+                                          <label>
+                                              <input type="radio" name="income" value="200,001 - 300,000"> 200,001 - 300,000
+                                          </label>
+                                          <br>
+                                          <label>
+                                              <input type="radio" name="income" value="300,001 - 400,000"> 300,001 - 400,000
+                                          </label>
+                                          <br>
+                                          <label>
+                                              <input type="radio" name="income" value="400,001 - 500,000"> 400,001 - 500,000
+                                          </label>
+                                          <br>
+                                          <label>
+                                              <input type="radio" name="income" value="statement"> I don't earn any income from Livestock production 
+                                          </label>                                                                                                              
+                                          </div>
+  
+                                          <div class="form-group">
+                                              <label>50. What is the estimated annual income CEREALS PRODUCTION in the last year? </label>
+                                              <br>
+                                              <label>
+                                                  <input type="radio" name="income" value="100,000 and below"> 100,000 and below
+                                              </label>
+                                               <br>
+                                              <label>
+                                                  <input type="radio" name="income" value="100,001 - 200,000"> 100,001 - 200,000 
+                                              </label>
+                                              <br>
+                                              <label>
+                                                  <input type="radio" name="income" value="200,001 - 300,000"> 200,001 - 300,000
+                                              </label>
+                                              <br>
+                                              <label>
+                                                  <input type="radio" name="income" value="300,001 - 400,000"> 300,001 - 400,000
+                                              </label>
+                                              <br>
+                                              <label>
+                                                  <input type="radio" name="income" value="400,001 - 500,000"> 400,001 - 500,000
+                                              </label>
+                                              <br>
+                                              <label>
+                                                  <input type="radio" name="income" value="statement"> I don't earn any income from Cereals production 
+                                              </label>                                                                                                              
+                                              </div>
+  
+                                              <div class="form-group">
+                                                  <label>51. What is the estimated annual income VEGETABLES PRODUCTION in the last year? </label>
+                                                  <br>
+                                                  <label>
+                                                      <input type="radio" name="income" value="100,000 and below"> 100,000 and below
+                                                  </label>
+                                                   <br>
+                                                  <label>
+                                                      <input type="radio" name="income" value="100,001 - 200,000"> 100,001 - 200,000 
+                                                  </label>
+                                                  <br>
+                                                  <label>
+                                                      <input type="radio" name="income" value="200,001 - 300,000"> 200,001 - 300,000
+                                                  </label>
+                                                  <br>
+                                                  <label>
+                                                      <input type="radio" name="income" value="300,001 - 400,000"> 300,001 - 400,000
+                                                  </label>
+                                                  <br>
+                                                  <label>
+                                                      <input type="radio" name="income" value="400,001 - 500,000"> 400,001 - 500,000
+                                                  </label>
+                                                  <br>
+                                                  <label>
+                                                      <input type="radio" name="income" value="statement"> I don't earn any income from Vegetable production 
+                                                  </label>                                                                                                              
+                                                  </div>
+  
+                                                  <div class="form-group">
+                                                      <label>52. What is the estimated annual income FRUITS PRODUCTION in the last year? </label>
+                                                      <br>
+                                                      <label>
+                                                          <input type="radio" name="income" value="100,000 and below"> 100,000 and below
+                                                      </label>
+                                                       <br>
+                                                      <label>
+                                                          <input type="radio" name="income" value="100,001 - 200,000"> 100,001 - 200,000 
+                                                      </label>
+                                                      <br>
+                                                      <label>
+                                                          <input type="radio" name="income" value="200,001 - 300,000"> 200,001 - 300,000
+                                                      </label>
+                                                      <br>
+                                                      <label>
+                                                          <input type="radio" name="income" value="300,001 - 400,000"> 300,001 - 400,000
+                                                      </label>
+                                                      <br>
+                                                      <label>
+                                                          <input type="radio" name="income" value="400,001 - 500,000"> 400,001 - 500,000
+                                                      </label>
+                                                      <br>
+                                                      <label>
+                                                          <input type="radio" name="income" value="statement"> I don't earn any income from Fruits production 
+                                                      </label>                                                                                                              
+                                                      </div>
+  
+                                                      <div class="form-group">
+                                                          <label>53. Have borrowed any loans/funds to invest in your farm?</label>
+                                                          <form>
+                                                              <label>
+                                                                  <input type="radio" name="produce" value="yes">
+                                                                   Yes
+                                                              </label>
+                                                              <br>
+                                                              <label>
+                                                                  <input type="radio" name="produce" value="no">
+                                                                   No
+                                                              </label>
+                                                          </form>
+                                                      </div>
+  
+                                                      <div class="form-group">
+                                                          <label>54. In which area did you invest loan/funds borrowed? </label>
+                                                          <br>
+                                                          <label>
+                                                              <input type="radio" name="loan" value="Irish Potatoes"> Inputs
+                                                          </label>
+                                                           <br>
+                                                          <label>
+                                                              <input type="radio" name="loan" value="Tomatoes"> Working Capital
+                                                          </label>
+                                                          <br>
+                                                          <label>
+                                                              <input type="radio" name="loan" value="Cabbages"> Farm Machinery
+                                                          </label>
+                                                          <br>                                                                          
+                                                                                                                        
+                                                          <label>
+                                                              <input type="radio" name="loan" value="Other"> Other
+                                                              Specify: <input type="text" name="loan" placeholder="Other area">
+                                                          </label>
+                                                          </div>
+  
+                                                          <div class="form-group">
+                                                              <label>55. Do you have an Equity Account?</label>
+                                                              <form>
+                                                                  <label>
+                                                                      <input type="radio" name="produce" value="yes">
+                                                                       Yes
+                                                                  </label>
+                                                                  <br>
+                                                                  <label>
+                                                                      <input type="radio" name="produce" value="no">
+                                                                       No
+                                                                  </label>
+                                                              </form>
+                                                          </div>
+  
+                                                          <div class="form-group">
+                                                              <label>56. When was the last time you transcated from that account i.e make a deosit or withdrawal? </label>
+                                                              <br>
+                                                              <label>
+                                                                  <input type="radio" name="transcated" value="100,000 and below"> This month
+                                                              </label>
+                                                               <br>
+                                                              <label>
+                                                                  <input type="radio" name="transcated" value="100,001 - 200,000"> Last month
+                                                              </label>
+                                                              <br>
+                                                              <label>
+                                                                  <input type="radio" name="transcated" value="200,001 - 300,000"> Last three months
+                                                              </label>
+                                                              <br>
+                                                              <label>
+                                                                  <input type="radio" name="transcated" value="300,001 - 400,000"> I don't remember 
+                                                              </label>                                                                                                                                                                                              
+                                                              </div>
+  
+                                                              <div class="form-group">
+                                                                  <label>57. What are THREE main challenges you encounter in your farm?</label>
+                                                                  <input type="text" class="form-control">
+                                                              </div>
+  
+                                                              <div class="form-group">
+                                                                  <label>58. What are THREE recommedations you propose to deal with the challenges listed above?</label>
+                                                                  <input type="text" class="form-control">
+                                                              </div>
+  
+                                                              <div class="form-group">
+                                                                  <label>59. Any other comment?</label>
+                                                                  <input type="text" class="form-control">
+                                                              </div>
+                </form>
+  
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+          </mat-card-content>
+        </mat-card>
+    
+      </ng-container>
+  
+      <ng-container *ngIf="selectedType===roleSme">
+        <mat-card>
+          <mat-card-content>
+        <form class="onboard-form m-2" [formGroup]="smeForm">
+          <div class="container">
+            <h2>SME Enrollment Form</h2>
+            <form (ngSubmit)="submitForm()" #enrollmentForm="ngForm">
+              <!-- 1. Date of Enrollment -->
+              <div class="form-group">
+                <label for="dateOfEnrollment">1. Date of Enrollment</label>
+                <input type="date" id="dateOfEnrollment" name="dateOfEnrollment" class="form-control" ngModel required>
+              </div>
+          
+              <!-- 2. Name of person keying in data -->
+              <div class="form-group">
+                <label for="dataEntryName">2. Name of person keying in data</label>
+                <input type="text" id="dataEntryName" name="dataEntryName" class="form-control" ngModel required>
+              </div>
+          
+              <!-- 3. Name of Entrepreneur or SME Representative -->
+              <div class="form-group">
+                <label for="representativeName">3. Name of Entrepreneur or SME Representative</label>
+                <input type="text" id="representativeName" name="representativeName" class="form-control" ngModel required>
+              </div>
+          
+              <!-- 4. Please indicate your sex -->
+              <div class="form-group">
+                <label>4. Sex</label>
+                <div class="form-check">
+                  <input type="radio" id="male" name="sex" value="Male" class="form-check-input" ngModel required>
+                  <label for="male" class="form-check-label">Male</label>
+                </div>
+                <div class="form-check">
+                  <input type="radio" id="female" name="sex" value="Female" class="form-check-input" ngModel required>
+                  <label for="female" class="form-check-label">Female</label>
+                </div>
+              </div>
+          
+              <!-- 5. Date of birth -->
+              <div class="form-group">
+                <label for="dob">5. Date of Birth</label>
+                <input type="text" id="dob" name="dob" class="form-control" ngModel pattern="\d{1,2}/\d{1,2}/\d{4}" required>
+                <small class="form-text text-muted">Format: M/d/yyyy</small>
+              </div>
+          
+              <!-- 6. National number -->
+              <div class="form-group">
+                <label for="nationalNumber">6. National Number</label>
+                <input type="text" id="nationalNumber" name="nationalNumber" class="form-control" ngModel pattern="\d+" required>
+              </div>
+          
+              <!-- 7. Telephone Contact -->
+              <div class="form-group">
+                <label for="telephoneContact">7. Telephone Contact</label>
+                <input type="tel" id="telephoneContact" name="telephoneContact" class="form-control" ngModel required>
+              </div>
+          
+              <!-- 8. Alternative Telephone Contact -->
+              <div class="form-group">
+                <label for="alternativeContact">8. Alternative Telephone Contact</label>
+                <input type="tel" id="alternativeContact" name="alternativeContact" class="form-control" ngModel>
+              </div>
+          
+              <!-- 9. Email Address -->
+              <div class="form-group">
+                <label for="email">9. Email Address</label>
+                <input type="email" id="email" name="email" class="form-control" ngModel required>
+              </div>
+          
+              <!-- 10. County of Residence (Select) -->
+              <div class="form-group">
+                <label for="countyOfResidence">10. County of Residence</label>
+                <select id="countyOfResidence" name="countyOfResidence" class="form-control" ngModel       required>
+                    <select id="countySelect" name="county">
+                        <option value="Nairobi">Nairobi</option>
+                        <option value="Mombasa">Mombasa</option>
+                        <option value="Kwale">Kwale</option>
+                        <option value="Kilifi">Kilifi</option>
+                        <option value="Tana River">Tana River</option>
+                        <option value="Lamu">Lamu</option>
+                        <option value="Taita-Taveta">Taita-Taveta</option>
+                        <option value="Garissa">Garissa</option>
+                        <option value="Wajir">Wajir</option>
+                        <option value="Mandera">Mandera</option>
+                        <option value="Marsabit">Marsabit</option>
+                        <option value="Isiolo">Isiolo</option>
+                        <option value="Meru">Meru</option>
+                        <option value="Tharaka Nithi">Tharaka Nithi</option>
+                        <option value="Embu">Embu</option>
+                        <option value="Kitui">Kitui</option>
+                        <option value="Machakos">Machakos</option>
+                        <option value="Makueni">Makueni</option>
+                        <option value="Nyandarua">Nyandarua</option>
+                        <option value="Nyeri">Nyeri</option>
+                        <option value="Kirinyaga">Kirinyaga</option>
+                        <option value="Murang'a">Murang'a</option>
+                        <option value="Kiambu">Kiambu</option>
+                        <option value="Turkana">Turkana</option>
+                        <option value="West Pokot">West Pokot</option>
+                        <option value="Samburu">Samburu</option>
+                        <option value="Trans-Nzoia">Trans-Nzoia</option>
+                        <option value="Uasin Gishu">Uasin Gishu</option>
+                        <option value="Elgeyo-Marakwet">Elgeyo-Marakwet</option>
+                        <option value="Nandi">Nandi</option>
+                        <option value="Bungoma">Bungoma</option>
+                        <option value="Kakamega">Kakamega</option>
+                        <option value="Vihiga">Vihiga</option>
+                        <option value="Bomet">Bomet</option>
+                        <option value="Kericho">Kericho</option>
+                        <option value="Nakuru">Nakuru</option>
+                        <option value="Narok">Narok</option>
+                        <option value="Kajiado">Kajiado</option>
+                        <option value="Busia">Busia</option>
+                        <option value="Siaya">Siaya</option>
+                        <option value="Kisumu">Kisumu</option>
+                        <option value="Homa Bay">Homa Bay</option>
+                      </select>
+                      
+                </select>
+              </div>
+          <!-- 11. Sub-County of Residence -->
+            <div class="form-group">
+            <label for="subCountyOfResidence">11. Sub-County of Residence</label>
+            <input type="text" id="subCountyOfResidence" name="subCountyOfResidence" class="form-control" ngModel required>
+          </div>
+          
+          <!-- 12. Constituency of Residence -->
+          <div class="form-group">
+            <label for="constituencyOfResidence">12. Constituency of Residence</label>
+            <input type="text" id="constituencyOfResidence" name="constituencyOfResidence" class="form-control" ngModel required>
+          </div>
+          
+          <!-- 13. Ward of Residence -->
+          <div class="form-group">
+            <label for="wardOfResidence">13. Ward of Residence</label>
+            <input type="text" id="wardOfResidence" name="wardOfResidence" class="form-control" ngModel required>
+          </div>
+          
+          <!-- 14. Do you have any formal schooling -->
+          <div class="form-group">
+            <label>14. Do you have any formal schooling?</label>
+            <div class="form-check">
+              <input type="radio" id="formalSchoolingYes" name="formalSchooling" value="Yes" class="form-check-input" ngModel required>
+              <label for="formalSchoolingYes" class="form-check-label">Yes</label>
+            </div>
+            <div class="form-check">
+              <input type="radio" id="formalSchoolingNo" name="formalSchooling" value="No" class="form-check-input" ngModel required>
+              <label for="formalSchoolingNo" class="form-check-label">No</label>
+            </div>
+          </div>
+          
+          <!-- 15. Level of Schooling -->
+          <div class="form-group">
+            <label for="schoolingLevel">15. What level of schooling did you reach?</label>
+            <select id="schoolingLevel" name="schoolingLevel" class="form-control" ngModel required>
+              <option value="Primary Incomplete">Primary Incomplete</option>
+              <option value="Primary - Complete">Primary - Complete</option>
+              <!-- Add more options -->
+            </select>
+          </div>
+          
+          <!-- 16. Name of Business -->
+          <div class="form-group">
+            <label for="businessName">16. Name of Business</label>
+            <input type="text" id="businessName" name="businessName" class="form-control" ngModel required>
+          </div>
+          
+          <!-- 17. Town of Main Business Premises -->
+          <div class="form-group">
+            <label for="mainBusinessTown">17. Town of Main Business Premises</label>
+            <input type="text" id="mainBusinessTown" name="mainBusinessTown" class="form-control" ngModel required>
+          </div>
+          
+          <!-- 18. County of Main Business Premises -->
+          <div class="form-group">
+            <label for="mainBusinessCounty">18. County of Main Business Premises</label>
+            <select id="mainBusinessCounty" name="mainBusinessCounty" class="form-control" ngModel required>
+              <option value="Bomet">Bomet</option>
+              <option value="Bungoma">Bungoma</option>
+              <!-- Add more options -->
+            </select>
+          </div>
+          
+          <!-- 19. Sub-County of Main Business Premises -->
+          <div class="form-group">
+            <label for="mainBusinessSubCounty">19. Sub-County of Main Business Premises</label>
+            <input type="text" id="mainBusinessSubCounty" name="mainBusinessSubCounty" class="form-control" ngModel required>
+          </div>
+          
+          <!-- 20. Ward of Main Business Premises -->
+          <div class="form-group">
+            <label for="mainBusinessWard">20. Ward of Main Business Premises</label>
+            <input type="text" id="mainBusinessWard" name="mainBusinessWard" class="form-control" ngModel required>
+          </div>
+          
+          <!-- 21. Year of Starting the Business -->
+          <div class="form-group">
+            <label for="businessStartYear">21. In which year did you start your business (yyyy)?</label>
+            <input type="number" id="businessStartYear" name="businessStartYear" class="form-control" ngModel required>
+          </div>
+          
+          <!-- 22. Is your business registered? -->
+          <div class="form-group">
+            <label>22. Is your business registered?</label>
+            <div class="form-check">
+              <input type="radio" id="businessRegisteredYes" name="businessRegistered" value="Yes" class="form-check-input" ngModel required>
+              <label for="businessRegisteredYes" class="form-check-label">Yes</label>
+            </div>
+            <div class="form-check">
+              <input type="radio" id="businessRegisteredNo" name="businessRegistered" value="No" class="form-check-input" ngModel required>
+              <label for="businessRegisteredNo" class="form-check-label">No</label>
+            </div>
+          </div>
+          
+          <!-- 23. Nature of Business Ownership -->
+          <div class="form-group">
+            <label for="businessOwnership">23. What is the nature of the ownership of the business?</label>
+            <select id="businessOwnership" name="businessOwnership" class="form-control" ngModel required>
+              <option value="Sole Proprietor">Sole Proprietor</option>
+              <option value="Partnership">Partnership</option>
+              <option value="Limited Company">Limited Company</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+          
+          <!-- 24. Main Sector Focus -->
+          <div class="form-group">
+            <label for="mainSectorFocus">24. Which is the MAIN sector that your business focuses on?</label>
+            <select id="mainSectorFocus" name="mainSectorFocus" class="form-control" ngModel required>
+              <option value="Retail">Retail</option>
+              <option value="Wholesale + Retail">Wholesale + Retail</option>
+              <option value="Service">Service</option>
+              <option value="Manufacturing">Manufacturing</option>
+              <option value="Other"> Other </option>
+            </select>
+          </div>
+          
+          <!-- 25. Goods/Services Offered to Agricultural Sector -->
+          <div class="form-group">
+            <label for="goodsServicesOffered">25. How would you describe your business in terms of the MAIN goods/services offered to the agricultural sector?</label>
+            <select id="goodsServicesOffered" name="goodsServicesOffered" class="form-control" ngModel required>
+              <option value="Local Buyer + Seller">Local Buyer + Seller</option>
+              <option value="Export Layer + Sellter">Export Layer + Seller</option>
+              <option value="Agroprocessor">Agroprocessor</option>
+              <option value="Agro-dealer">Agro-dealer [input supplier]</option>
+              <option value="Artificial Insemination Provider">Artificial Insemination Provider</option>
+              <option value="Supplier of Technologies">Supplier of Technologies</option> 
+            </select>
+          </div>
+        
+          <div class="form-group">
+            <label>26.Do you buy any agricultural produce?</label>
+            <div class="form-check">
+              <input type="radio" id="buyProduceYes" name="buyProduce" value="Yes" class="form-check-input" ngModel required>
+              <label for="buyProduceYes" class="form-check-label">Yes</label>
+            </div>
+            <div class="form-check">
+              <input type="radio" id="buyProduceNo" name="buyProduce" value="No" class="form-check-input" ngModel required>
+              <label for="buyProduceNo" class="form-check-label">No</label>
+            </div>
+          </div>
+          
+          <!-- 27. What agricultural produce do you buy? (Checkboxes) -->
+          <div class="form-group">
+            <label>27. What agricultural produce do you buy?</label>
+            <div class="form-check">
+              <input type="checkbox" id="livestockDairy" name="produceTypes" value="Livestock + Dairy and related products" class="form-check-input" ngModel>
+              <label for="livestockDairy" class="form-check-label">Livestock + Dairy and related products</label>
+            </div>
+            <div class="form-check">
+              <input type="checkbox" id="fieldCrops" name="produceTypes" value="Field Crops [e.g. Cereals]" class="form-check-input" ngModel>
+              <label for="fieldCrops" class="form-check-label">Field Crops [e.g. Cereals]</label>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" id="horticultureCrops" name="produceTypes" value="Horticulture Crops [e.g. Flowers, Vegetables]" class="form-check-input" ngModel>
+                <label for="horticultureCrops" class="form-check-label">Horticulture Crops [e.g. Flowers, Vegetables]</label>
+              </div>
+              
+              <div class="form-check">
+                <input type="checkbox" id="fruits" name="produceTypes" value="Fruits" class="form-check-input" ngModel>
+                <label for="fruits" class="form-check-label">Fruits</label>
+              </div>
+              
+              <div class="form-check">
+                <input type="checkbox" id="poultryProducts" name="produceTypes" value="Poultry and related products" class="form-check-input" ngModel>
+                <label for="poultryProducts" class="form-check-label">Poultry and related products</label>
+              </div>
+              
+              <div class="form-check">
+                <input type="checkbox" id="otherProduce" name="produceTypes" value="Other" class="form-check-input" ngModel>
+                <label for="otherProduce" class="form-check-label">Other</label>
+              </div>
+              
+          </div>
+          
+          <!-- 28. First MAIN agricultural produce you buy -->
+          <div class="form-group">
+            <label for="firstProduce">28. What is the first MAIN agricultural produce you buy?</label>
+            <input type="text" id="firstProduce" name="firstProduce" class="form-control" ngModel>
+          </div>
+          
+          <!-- 29. How often you buy agricultural produce (Produce 1) -->
+          <div class="form-group">
+            <label for="buyFrequency1">29. For produce 1, indicate how often you buy agricultural produce?</label>
+            <select id="buyFrequency1" name="buyFrequency1" class="form-control" ngModel>
+              <option value="Daily">Daily</option>
+              <option value="Weekly">Weekly</option>
+              <option value="Monthly">Monthly</option>
+              <option value="Seasonal">Seasonal</option>
+              <option value="Yearly">Yearly</option>
+            </select>
+          </div>
+          
+          <!-- 30. Total estimated value of produce (Produce 1) -->
+          <div class="form-group">
+            <label for="produceValue1">30. For produce 1, on a basis, what is the total estimated value of the produce?</label>
+            <input type="number" id="produceValue1" name="produceValue1" class="form-control" ngModel required>
+          </div>
+          
+          <!-- 31. Estimated Number of Farmers for Produce 1 -->
+        <div class="form-group">
+            <label for="numFarmersProduce1">31. For produce 1, on a _____ basis, what is the estimated number of farmers you buy?</label>
+            <input type="number" id="numFarmersProduce1" name="numFarmersProduce1" class="form-control" ngModel required>
+          </div>
+          
+          <!-- 32. How You Buy for Produce 1 -->
+          <div class="form-group">
+            <label for="buyMethodProduce1">32. For produce 1, indicate whether you buy individually or from groups of farmers</label>
+            <select id="buyMethodProduce1" name="buyMethodProduce1" class="form-control" ngModel>
+              <option value="Individual farmers">Individual farmers</option>
+              <option value="Farmer Groups">Farmer Groups</option>
+              <option value="Aggregators">Aggregators</option>
+              <option value="Brokers/Middlemen">Brokers/Middlemen</option>
+              <option value="Bales">Bales</option>
+              <option value="Not Indicated">Not Indicated</option>
+            </select>
+          </div>
+          
+          <!-- 33. Quantity Units for Produce 1 -->
+        <div class="form-group">
+            <label for="quantityUnitsProduce1">33. For produce 1, based on the units in the table provided, what quantity do you buy?</label>
+            <select id="quantityUnitsProduce1" name="quantityUnitsProduce1" class="form-control" ngModel>
+              <option value="Metric Tonnes">Metric Tonnes</option>
+              <option value="Heads">Heads</option>
+              <option value="Pieces">Pieces</option>
+              <option value="Litres">Litres</option>
+              <option value="Bunches">Bunches</option>
+              <option value="Bales">Bales</option>
+              <option value="Grams">Grams</option>
+              <option value="Kilograms">Kilograms</option>
+              <option value="100Kg Bags">100Kg Bags</option>
+              <option value="90Kg Bags">90Kg Bags</option>
+              <option value="50Kg Bags">50Kg Bags</option>
+              <option value="Crates">Crates</option>
+              <option value="Not indicated">Not indicated</option>
+            </select>
+          </div>
+          
+          <!-- 34. Do you buy any other Agricultural Produce -->
+          <div class="form-group">
+            <label>34. Do you buy any other Agricultural Produce?</label>
+            <div class="form-check">
+              <input type="radio" id="buyOtherProduceYes" name="buyOtherProduce" value="Yes" class="form-check-input" ngModel required>
+              <label for="buyOtherProduceYes" class="form-check-label">Yes</label>
+            </div>
+            <div class="form-check">
+              <input type="radio" id="buyOtherProduceNo" name="buyOtherProduce" value="No" class="form-check-input" ngModel required>
+              <label for="buyOtherProduceNo" class="form-check-label">No</label>
+            </div>
+          </div>
+          
+          <!-- 35. Second MAIN produce you buy from farmers -->
+          <div class="form-group">
+            <label for="secondProduce">35. What is the Second MAIN produce you buy from farmers?</label>
+            <input type="text" id="secondProduce" name="secondProduce" class="form-control" ngModel>
+          </div>
+          
+         <!-- For Produce 2 -->
+        <div class="form-group">
+            <label for="buyFrequencyProduce2">36. For produce 2, indicate how often you buy from farmers</label>
+            <select id="buyFrequencyProduce2" name="buyFrequencyProduce2" class="form-control" ngModel>
+              <option value="Daily">Daily</option>
+              <option value="Weekly">Weekly</option>
+              <option value="Monthly">Monthly</option>
+              <option value="Seasonal">Seasonal</option>
+              <option value="Yearly">Yearly</option>
+              <option value="Not Indicated">Not Indicated</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="estimatedValueProduce2">37. For produce 2, on a _____ basis, what is the total estimated value of the produce</label>
+            <input type="number" id="estimatedValueProduce2" name="estimatedValueProduce2" class="form-control" ngModel required>
+          </div>
+          
+          <div class="form-group">
+            <label for="numFarmersProduce2">38. For produce 2, on a _____ basis, what is the estimated number of farmers you buy?</label>
+            <input type="number" id="numFarmersProduce2" name="numFarmersProduce2" class="form-control" ngModel required>
+          </div>
+          
+          <div class="form-group">
+            <label for="buyMethodProduce2">39. For produce 2, indicate whether you buy individually or from groups of farmers</label>
+            <select id="buyMethodProduce2" name="buyMethodProduce2" class="form-control" ngModel>
+              <option value="Individual farmers">Individual farmers</option>
+              <option value="Farmer Groups">Farmer Groups</option>
+              <option value="Aggregators">Aggregators</option>
+              <option value="Brokers/Middlemen">Brokers/Middlemen</option>
+              <option value="Not Indicated">Not Indicated</option>
+            </select>
+          </div>
+          
+          <!-- For Produce 3 -->
+          <div class="form-group">
+            <label for="buyFrequencyProduce3">40. For produce 3, indicate how often you buy from farmers</label>
+            <select id="buyFrequencyProduce3" name="buyFrequencyProduce3" class="form-control" ngModel>
+              <option value="Daily">Daily</option>
+              <option value="Weekly">Weekly</option>
+              <option value="Monthly">Monthly</option>
+              <option value="Seasonal">Seasonal</option>
+              <option value="Yearly">Yearly</option>
+              <option value="Not Indicated">Not Indicated</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="estimatedValueProduce3">41. For produce 3, on a _____ basis, what is the total estimated value of the produce</label>
+            <input type="number" id="estimatedValueProduce3" name="estimatedValueProduce3" class="form-control" ngModel required>
+          </div>
+          
+          <div class="form-group">
+            <label for="numFarmersProduce3">42. For produce 3, on a _____ basis, what is the estimated number of farmers you buy?</label>
+            <input type="number" id="numFarmersProduce3" name="numFarmersProduce3" class="form-control" ngModel required>
+          </div>
+          
+          <div class="form-group">
+            <label for="buyMethodProduce3">43. For produce 3, indicate whether you buy individually or from groups of farmers</label>
+            <select id="buyMethodProduce3" name="buyMethodProduce3" class="form-control" ngModel>
+              <option value="Individual farmers">Individual farmers</option>
+              <option value="Farmer Groups">Farmer Groups</option>
+              <option value="Aggregators">Aggregators</option>
+              <option value="Brokers/Middlemen">Brokers/Middlemen</option>
+              <option value="Other">Other</option>
+              <option value="Not Indicated">Not Indicated</option>
+            </select>
+          </div>
+          
+          <!-- For Produce 3 Quantity Units -->
+          <div class="form-group">
+            <label for="quantityUnitsProduce3">44. For produce 3, based on the units in the table provided, what quantity do you buy?</label>
+            <select id="quantityUnitsProduce3" name="quantityUnitsProduce3" class="form-control" ngModel>
+              <option value="Metric Tonnes">Metric Tonnes</option>
+              <option value="Heads">Heads</option>
+              <option value="Pieces">Pieces</option>
+              <option value="Litres">Litres</option>
+              <option value="Bunches">Bunches</option>
+              <option value="Bales">Bales</option>
+              <option value="Grams">Grams</option>
+              <option value="Kilograms">Kilograms</option>
+              <option value="100Kg Bags">100Kg Bags</option>
+              <option value="90Kg Bags">90Kg Bags</option>
+              <option value="50Kg Bags">50Kg Bags</option>
+              <option value="Crates">Crates</option>
+              <option value="Not Indicated">Not Indicated</option>
+            </select>
+          </div>
+          
+          <!-- 47. Estimated Amount of Startup Capital -->
+          <div class="form-group">
+            <label for="startupCapital">45. What is the estimated amount of startup capital (KES)?</label>
+            <input type="number" id="startupCapital" name="startupCapital" class="form-control" ngModel required>
+          </div>
+          
+          <!-- 48. Source of Business Startup Capital -->
+          <div class="form-group">
+            <label for="capitalSource">46. What was the source of business startup capital?</label>
+            <select id="capitalSource" name="capitalSource" class="form-control" ngModel required>
+              <option value="Loan">Loan</option>
+              <option value="Savings">Savings</option>
+              <option value="Funds from Family + Friends">Funds from Family + Friends</option>
+              <option value="Pension">Pension</option>
+              <option value="Gift+Inheritance">Gift+Inheritance</option>
+              <option value="all creation">all creation</option>
+              <option value="other">other</option>
+            </select>
+          </div>
+        
+          <div class="form-group">
+            <label for="investmentTotal">47. To date, how much have you invested in your business [Asset and working capital]?</label>
+            <input type="number" id="investmentTotal" name="investmentTotal" class="form-control" ngModel required>
+          </div>
+          
+          <!-- 50. Number of Branches -->
+          <div class="form-group">
+            <label for="numberOfBranches">48. How many branches are currently running (excluding the main office)?</label>
+            <input type="number" id="numberOfBranches" name="numberOfBranches" class="form-control" ngModel required>
+          </div>
+          
+          <!-- 51. Estimated Business Value -->
+          <div class="form-group">
+            <label for="businessValue">49. What is the estimated value of your business?</label>
+            <input type="number" id="businessValue" name="businessValue" class="form-control" ngModel required>
+          </div>
+          
+          <!-- 52. Do you track your sales and costs? -->
+          <div class="form-group">
+            <label>50. Do you track your sales and costs?</label>
+            <div class="form-check">
+              <input type="radio" id="trackSalesYes" name="trackSales" value="Yes" class="form-check-input" ngModel required>
+              <label for="trackSalesYes" class="form-check-label">Yes</label>
+            </div>
+            <div class="form-check">
+              <input type="radio" id="trackSalesNo" name="trackSales" value="No" class="form-check-input" ngModel required>
+              <label for="trackSalesNo" class="form-check-label">No</label>
+            </div>
+          </div>
+          
+          <!-- 53. Frequency of Tracking Sales and Costs -->
+          <div class="form-group">
+            <label for="trackingFrequency">51. If Yes, how often do you track your sales and costs?</label>
+            <select id="trackingFrequency" name="trackingFrequency" class="form-control" ngModel>
+              <option value="Daily">Daily</option>
+              <option value="Weekly">Weekly</option>
+              <option value="Weekly">Weekly</option>
+              <option value="Monthly">Monthly</option>
+              <option value="Seasonally">Seasonally</option>
+              <option value="Yearly">Yearly</option>
+              <option value="other">other</option>
+            </select>
+          </div>
+          
+          <!-- 54. Annual Sales Turnover -->
+          <div class="form-group">
+            <label for="annualSalesTurnover">52. What is your estimated ANNUAL SALES Turnover in KES?</label>
+            <select id="annualSalesTurnover" name="annualSalesTurnover" class="form-control" ngModel required>
+              <option value="100,000">&lt;100,000</option>
+              <option value="100,001-200,000">100,001-200,000</option>
+              <option value="200,001-300.000">200,001-300.000</option>
+              <option value="300,001-400,000">300,001-400,000</option>
+              <option value="400,001-500.000">400,001-500.000</option>
+              <option value=">500,000">>500,000</option>
+              <option value="Not Indicated">Not Indicated</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="annualExpensesTurnover">53. What is your estimated ANNUAL EXPENSES Turnover in KES?</label>
+            <select id="annualExpensesTurnover" name="annualExpensesTurnover" class="form-control" ngModel required>
+              <option value="<=100,000">&lt;=100,000</option>
+              <option value="100,001-200,000">100,001-200,000</option>
+              <option value="200,001-300.000">200,001-300.000</option>
+              <option value="300,001-400,000">300,001-400,000</option>
+              <option value="400,001-500.000">400,001-500.000</option>
+              <option value=">500,000">>500,000</option>
+              <option value="Not Indicated">Not Indicated</option>
+            </select>
+          </div>
+          
+          <!-- 56. Annual Gross Profit Turnover -->
+          <div class="form-group">
+            <label for="annualGrossProfitTurnover">54. What is your estimated ANNUAL GROSS PROFIT Turnover in KES?</label>
+            <select id="annualGrossProfitTurnover" name="annualGrossProfitTurnover" class="form-control" ngModel required>
+              <option value="<=100,000">&lt;=100,000</option>
+              <option value="100,001-200,000">100,001-200,000</option>
+              <option value="200,001-300.000">200,001-300.000</option>
+              <option value="300,001-400,000">300,001-400,000</option>
+              <option value="400,001-500.000">400,001-500.000</option>
+              <option value=">500,000">>500,000</option>
+              <option value="Not Indicated">Not Indicated</option>
+            </select>
+          </div>
+          
+          <!-- 57. Total Number of Staff -->
+          <div class="form-group">
+            <label for="totalStaff">55. What is the TOTAL number of staff [paid + unpaid] - including yourself?</label>
+            <input type="number" id="totalStaff" name="totalStaff" class="form-control" ngModel required>
+          </div>
+          
+          <!-- 58. Number of Salaried Staff -->
+          <div class="form-group">
+            <label for="salariedStaff">56. What is the number of salaried staff [paid] - including yourself?</label>
+            <input type="number" id="salariedStaff" name="salariedStaff" class="form-control" ngModel required>
+          </div>
+          
+          <!-- 59. Borrowed Loan -->
+          <div class="form-group">
+            <label>57. Have you borrowed any loan to invest in the enterprise/business?</label>
+            <div class="form-check">
+              <input type="radio" id="borrowedLoanYes" name="borrowedLoan" value="Yes" class="form-check-input" ngModel required>
+              <label for="borrowedLoanYes" class="form-check-label">Yes</label>
+            </div>
+            <div class="form-check">
+              <input type="radio" id="borrowedLoanNo" name="borrowedLoan" value="No" class="form-check-input" ngModel required>
+              <label for="borrowedLoanNo" class="form-check-label">No</label>
+            </div>
+          </div>
+          
+          <!-- 60. Access to Loans -->
+          <div class="form-group">
+            <label for="loanAccess">58. Generally, how do you access loans to improve your business?</label>
+            <select id="loanAccess" name="loanAccess" class="form-control" ngModel required>
+              <option value="Individually">Individually</option>
+              <option value="Group">Group</option>
+              <option value="Business">Business</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+          
+          <!-- 61. Areas of Loan Investment -->
+          <div class="form-group">
+            <label for="loanInvestment">59. In which areas were the funds borrowed invested?</label>
+            <input type="text" id="loanInvestment" name="loanInvestment" class="form-control" ngModel>
+          </div>
+          
+          <!-- 62. Equity Account -->
+          <div class="form-group">
+            <label>60. Do you have an Equity Account?</label>
+            <div class="form-check">
+              <input type="radio" id="equityAccountYes" name="equityAccount" value="Yes" class="form-check-input" ngModel required>
+              <label for="equityAccountYes" class="form-check-label">Yes</label>
+            </div>
+            <div class="form-check">
+              <input type="radio" id="equityAccountNo" name="equityAccount" value="No" class="form-check-input" ngModel required>
+              <label for="equityAccountNo" class="form-check-label">No</label>
+            </div>
+          </div>
+          
+          <!-- 63. Last Transaction on Equity Account -->
+          <div class="form-group">
+            <label for="lastEquityTransaction">61. When was the last time you transacted on that account i.e. make a deposit or a withdrawal?</label>
+            <select id="lastEquityTransaction" name="lastEquityTransaction" class="form-control" ngModel>
+              <option value="This month">This month</option>
+              <option value="Last month">Last month</option>
+              <option value="Last three months">Last three months</option>
+              <option value="Don't remember">Don't remember </option>
+            </select>
+          </div>
+          
+          <!-- 64. Business Challenges -->
+          <div class="form-group">
+            <label for="businessChallenges">62. What are the THREE main challenges you experience in your business?</label>
+            <input type="text" id="businessChallenges" name="businessChallenges" class="form-control" ngModel>
+          </div>
+          
+          <!-- 65. Proposed Recommendations -->
+          <div class="form-group">
+            <label for="proposedRecommendations">63. What are the THREE main proposed recommendations to solve the challenges mentioned?</label>
+            <input type="text" id="proposedRecommendations" name="proposedRecommendations" class="form-control" ngModel>
+          </div>
+          
+          <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+        </div>
+        </form>
+      </mat-card-content>
+    </mat-card>
+      </ng-container>
+  
+      <ng-container *ngIf="selectedType===roleRegionalManager">
+        <form class="onboard-form m-2" [formGroup]="regionalManagerForm">
+          <mat-card>
+            <mat-card-content>
+                <div class="container-fluid">
+                  <h1>Regional Managers Enrollment Form</h1>
+                  <form>
+                      <div class="form-group">
+                          <label>1. Date of enrollment</label>
+                          <input type="number" class="form-control">
+                      </div>
+    
+                      <div class="form-group">
+                          <label>2. Please indicate the name of the person keying in data</label>
+                          <input type="text" class="form-control">
+                      </div>
+    
+                      <div class="form-group">
+                          <label>3. Please indicate Regional Manager full Name </label>
+                          <input type="tel" class="form-control">
+                      </div>
+                      <div class="form-group">
+                          <label>4. Please indicate your gender </label>
+                          <form>
+                              <label>
+                                  <input type="radio" name="sex" value="Male">
+                                  Male
+                              </label>
+                              <br>
+                              <label>
+                                  <input type="radio" name="sex" value="Female">
+                                  Female
+                              </label>
+                          </form>
+                      </div>
+    
+                      
+                      <div class="form-group">
+                          <label>5. Please indicate date of birth </label>
+                            <form>
+                          <label for="dob"></label>
+                          <input type="date" id="dob" name="dob" min="1900-01-01" max="2099-12-31">
+                              </form>
+                      </div>
+    
+                      <div class="form-group">
+                          <label>6. Please indicate ID Number</label>
+                          <input type="number" class="form-control">
+                      </div>
+    
+                      
+                      <div class="form-group">
+                        <label>6. Please indicate PF Number</label>
+                        <input type="number" class="form-control">
+                    </div>
+  
+                      <div class="form-group">
+                          <label>7. Telephone contact</label>
+                          <input type="tel" class="form-control">
+                      </div>
+                      
+                      <div class="form-group">
+                          <label>8. Other telephone contact</label>
+                          <input type="tel" class="form-control">
+                      </div>
+                       
+                      <div class="form-group">
+                        <label>10. Select Region of Origin :</label>
+                        <body>
+                            
+                            <select id="countyDropdown">
+                                <option value="" disabled selected></option>
+                                <option value="Nairobi">Nairobi</option>
+                                <option value="Central">Central</option>
+                                <option value="Coast">Coast</option>
+                                <option value="Eastern">Eastern </option>
+                                <option value="North Eastern">North Eastern</option>
+                                <option value="Nyanza">Nyanza</option>
+                                <option value="Rift Valley">Rift Valley</option>
+                                <option value="Western">Western</option>
+                            </select>
+                        </body>                              
+                    </div>
+    
+  
+                      <div class="form-group">
+                        <label>10. Select County of Origin :</label>
+                        <body>
+                            
+                            <select id="countyDropdown">
+                              <option value="Nairobi">Nairobi</option>
+                              <option value="Mombasa">Mombasa</option>
+                              <option value="Kwale">Kwale</option>
+                              <option value="Kilifi">Kilifi</option>
+                              <option value="Tana River">Tana River</option>
+                              <option value="Lamu">Lamu</option>
+                              <option value="Taita-Taveta">Taita-Taveta</option>
+                              <option value="Garissa">Garissa</option>
+                              <option value="Wajir">Wajir</option>
+                              <option value="Mandera">Mandera</option>
+                              <option value="Marsabit">Marsabit</option>
+                              <option value="Isiolo">Isiolo</option>
+                              <option value="Meru">Meru</option>
+                              <option value="Tharaka Nithi">Tharaka Nithi</option>
+                              <option value="Embu">Embu</option>
+                              <option value="Kitui">Kitui</option>
+                              <option value="Machakos">Machakos</option>
+                              <option value="Makueni">Makueni</option>
+                              <option value="Nyandarua">Nyandarua</option>
+                              <option value="Nyeri">Nyeri</option>
+                              <option value="Kirinyaga">Kirinyaga</option>
+                              <option value="Murang'a">Murang'a</option>
+                              <option value="Kiambu">Kiambu</option>
+                              <option value="Turkana">Turkana</option>
+                              <option value="West Pokot">West Pokot</option>
+                              <option value="Samburu">Samburu</option>
+                              <option value="Trans-Nzoia">Trans-Nzoia</option>
+                              <option value="Uasin Gishu">Uasin Gishu</option>
+                              <option value="Elgeyo-Marakwet">Elgeyo-Marakwet</option>
+                              <option value="Nandi">Nandi</option>
+                              <option value="Bungoma">Bungoma</option>
+                              <option value="Kakamega">Kakamega</option>
+                              <option value="Vihiga">Vihiga</option>
+                              <option value="Bomet">Bomet</option>
+                              <option value="Kericho">Kericho</option>
+                              <option value="Nakuru">Nakuru</option>
+                              <option value="Narok">Narok</option>
+                              <option value="Kajiado">Kajiado</option>
+                              <option value="Busia">Busia</option>
+                              <option value="Siaya">Siaya</option>
+                              <option value="Kisumu">Kisumu</option>
+                              <option value="Homa Bay">Homa Bay</option>
+                            </select>
+                        </body>                              
+                    </div>
+    
+                      <div class="form-group">
+                          <label>9. Select Home Branch:</label>
+                          <body>
+                              
+                              <select id="countyDropdown">
+                                  <option value="" disabled selected></option>
+                                  <option value="Head Office">Equity Bank Head Office</option>
+                                  <option value="Corporate">Corporate</option>
+                                  <option value="Fourways">Fourways</option>
+                                  <option value="Kangema">Kangema</option>
+                                  <option value="Karatina">Karatina</option>
+                                  <option value="Kiriaini">Kiriaini</option>
+                                  <option value="Murarandia">Murarandia</option>
+                                  <option value="Kangari">Kangari</option>
+                                  <option value="Othaya">Othaya</option>
+                                  <option value="Thika">Thika</option>
+                                  <option value="Kerugoya">Kerugoya</option>
+                                  <option value="Nyeri">Nyeri</option>
+                                  <option value="Tom Mboya">Tom Mboya</option>
+                                  <option value="Nakuru">Nakuru</option>
+                                  <option value="Meru">Meru</option>
+                                  <option value="Mama Ngina">Mama Ngina</option>
+                                  <option value="Nyahururu">Nyahururu</option>
+                                  <option value="Community">Community</option>
+                                  <option value="Community Corporate">Community Corporate</option>
+                                  <option value="Embu">Embu</option>
+                                  <option value="Naivasha">Naivasha</option>
+                                  <option value="Chuka">Chuka</option>
+                                  <option value="Muranga">Muranga</option>
+                                  <option value="Molo">Molo</option>
+                                  <option value="Mombasa">Mombasa</option>
+                                  <option value="Kimathi Street">Kimathi Street</option>
+                                  <option value="Harambee Avenue">Harambee Avenue</option>
+                                  <option value="Nanyuki">Nanyuki</option>
+                                  <option value="Muranga">Muranga</option>
+                                  <option value="Kericho">Kericho</option>
+                              </select>
+                          </body>                              
+                      </div>
+                      <button type="submit" class="btn btn-primary">Submit</button>
+                  </form>
+                </div>
+            </mat-card-content>
+          </mat-card>
+       </form>
+      </ng-container>
+  
+      <ng-container *ngIf="selectedType===roleFieldOfficer">
+        <form class="onboard-form m-2" [formGroup]="fieldOfficerForm">
+          <mat-card>
+            <mat-card-content>
+                <div class="container-fluid">
+                  <h1>Field Officer Enrollment Form</h1>
+                  <form>
+                      <div class="form-group">
+                          <label>1. Date of enrollment</label>
+                          <input type="number" class="form-control">
+                      </div>
+    
+                      <div class="form-group">
+                          <label>2. Please indicate the name of the person keying in data</label>
+                          <input type="text" class="form-control">
+                      </div>
+    
+                      <div class="form-group">
+                          <label>3. Please indicate Regional Manager full Name </label>
+                          <input type="tel" class="form-control">
+                      </div>
+                      <div class="form-group">
+                          <label>4. Please indicate your gender </label>
+                          <form>
+                              <label>
+                                  <input type="radio" name="sex" value="Male">
+                                  Male
+                              </label>
+                              <br>
+                              <label>
+                                  <input type="radio" name="sex" value="Female">
+                                  Female
+                              </label>
+                          </form>
+                      </div>
+    
+                      
+                      <div class="form-group">
+                          <label>5. Please indicate date of birth </label>
+                            <form>
+                          <label for="dob"></label>
+                          <input type="date" id="dob" name="dob" min="1900-01-01" max="2099-12-31">
+                              </form>
+                      </div>
+    
+                      <div class="form-group">
+                          <label>6. Please indicate ID Number</label>
+                          <input type="number" class="form-control">
+                      </div>
+    
+                      
+                      <div class="form-group">
+                        <label>6. Please indicate PF Number</label>
+                        <input type="number" class="form-control">
+                    </div>
+  
+                      <div class="form-group">
+                          <label>7. Telephone contact</label>
+                          <input type="tel" class="form-control">
+                      </div>
+                      
+                      <div class="form-group">
+                          <label>8. Other telephone contact</label>
+                          <input type="tel" class="form-control">
+                      </div>
+                       
+                      <div class="form-group">
+                        <label>10. Select Region of Origin :</label>
+                        <body>
+                            
+                            <select id="countyDropdown">
+                                <option value="" disabled selected></option>
+                                <option value="Nairobi">Nairobi</option>
+                                <option value="Central">Central</option>
+                                <option value="Coast">Coast</option>
+                                <option value="Eastern">Eastern </option>
+                                <option value="North Eastern">North Eastern</option>
+                                <option value="Nyanza">Nyanza</option>
+                                <option value="Rift Valley">Rift Valley</option>
+                                <option value="Western">Western</option>
+                            </select>
+                        </body>                              
+                    </div>
+    
+  
+                      <div class="form-group">
+                        <label>10. Select County of Origin :</label>
+                        <body>
+                            
+                            <select id="countyDropdown">
+                              <option value="Nairobi">Nairobi</option>
+                              <option value="Mombasa">Mombasa</option>
+                              <option value="Kwale">Kwale</option>
+                              <option value="Kilifi">Kilifi</option>
+                              <option value="Tana River">Tana River</option>
+                              <option value="Lamu">Lamu</option>
+                              <option value="Taita-Taveta">Taita-Taveta</option>
+                              <option value="Garissa">Garissa</option>
+                              <option value="Wajir">Wajir</option>
+                              <option value="Mandera">Mandera</option>
+                              <option value="Marsabit">Marsabit</option>
+                              <option value="Isiolo">Isiolo</option>
+                              <option value="Meru">Meru</option>
+                              <option value="Tharaka Nithi">Tharaka Nithi</option>
+                              <option value="Embu">Embu</option>
+                              <option value="Kitui">Kitui</option>
+                              <option value="Machakos">Machakos</option>
+                              <option value="Makueni">Makueni</option>
+                              <option value="Nyandarua">Nyandarua</option>
+                              <option value="Nyeri">Nyeri</option>
+                              <option value="Kirinyaga">Kirinyaga</option>
+                              <option value="Murang'a">Murang'a</option>
+                              <option value="Kiambu">Kiambu</option>
+                              <option value="Turkana">Turkana</option>
+                              <option value="West Pokot">West Pokot</option>
+                              <option value="Samburu">Samburu</option>
+                              <option value="Trans-Nzoia">Trans-Nzoia</option>
+                              <option value="Uasin Gishu">Uasin Gishu</option>
+                              <option value="Elgeyo-Marakwet">Elgeyo-Marakwet</option>
+                              <option value="Nandi">Nandi</option>
+                              <option value="Bungoma">Bungoma</option>
+                              <option value="Kakamega">Kakamega</option>
+                              <option value="Vihiga">Vihiga</option>
+                              <option value="Bomet">Bomet</option>
+                              <option value="Kericho">Kericho</option>
+                              <option value="Nakuru">Nakuru</option>
+                              <option value="Narok">Narok</option>
+                              <option value="Kajiado">Kajiado</option>
+                              <option value="Busia">Busia</option>
+                              <option value="Siaya">Siaya</option>
+                              <option value="Kisumu">Kisumu</option>
+                              <option value="Homa Bay">Homa Bay</option>
+                            </select>
+                        </body>                              
+                    </div>
+    
+                      <div class="form-group">
+                          <label>9. Select Home Branch:</label>
+                          <body>
+                              
+                              <select id="countyDropdown">
+                                  <option value="" disabled selected></option>
+                                  <option value="Head Office">Equity Bank Head Office</option>
+                                  <option value="Corporate">Corporate</option>
+                                  <option value="Fourways">Fourways</option>
+                                  <option value="Kangema">Kangema</option>
+                                  <option value="Karatina">Karatina</option>
+                                  <option value="Kiriaini">Kiriaini</option>
+                                  <option value="Murarandia">Murarandia</option>
+                                  <option value="Kangari">Kangari</option>
+                                  <option value="Othaya">Othaya</option>
+                                  <option value="Thika">Thika</option>
+                                  <option value="Kerugoya">Kerugoya</option>
+                                  <option value="Nyeri">Nyeri</option>
+                                  <option value="Tom Mboya">Tom Mboya</option>
+                                  <option value="Nakuru">Nakuru</option>
+                                  <option value="Meru">Meru</option>
+                                  <option value="Mama Ngina">Mama Ngina</option>
+                                  <option value="Nyahururu">Nyahururu</option>
+                                  <option value="Community">Community</option>
+                                  <option value="Community Corporate">Community Corporate</option>
+                                  <option value="Embu">Embu</option>
+                                  <option value="Naivasha">Naivasha</option>
+                                  <option value="Chuka">Chuka</option>
+                                  <option value="Muranga">Muranga</option>
+                                  <option value="Molo">Molo</option>
+                                  <option value="Mombasa">Mombasa</option>
+                                  <option value="Kimathi Street">Kimathi Street</option>
+                                  <option value="Harambee Avenue">Harambee Avenue</option>
+                                  <option value="Nanyuki">Nanyuki</option>
+                                  <option value="Muranga">Muranga</option>
+                                  <option value="Kericho">Kericho</option>
+                              </select>
+                          </body>                              
+                      </div>
+                      <button type="submit" class="btn btn-primary">Submit</button>
+                  </form>
+                </div>
+            </mat-card-content>
+          </mat-card>
+        </form>
+      </ng-container>
+  
+  </div>
+  </section>

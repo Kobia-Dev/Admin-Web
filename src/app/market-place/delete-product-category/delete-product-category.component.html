@@ -1,0 +1,16 @@
+<div class="row">
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2" align="center">
+        <p>Are you sure you want to delete product category "{{ this.rowData.productCategory}}" </p>
+        <p>{{this.rowData.description}}?</p>
+    </div>
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
+        <div class="example-button-row" align="center">
+            <button mat-raised-button color="primary" (click)="onDelete()">
+                Delete
+            </button>
+            <button mat-raised-button color="warn" (click)="onCancel()" tabindex="-1">
+                Cancel
+            </button>
+        </div>
+    </div>
+</div>

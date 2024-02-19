@@ -1,0 +1,19 @@
+<div class="row"> 
+    <div class=" d-flex justify-content-end align-items-end">
+       <button mat-icon-button (click)="dialogRef.close()" aria-label="Close dialog">
+            <mat-icon>close</mat-icon>
+        </button>
+    </div>
+    <div class="row content center-text">
+        <p class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2" style="font-size: 17px; font-weight: 500">
+            Driver Name: {{this.rowData.user.firstName}} {{this.rowData.user.lastName}}</p>
+        <p class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2" style="font-size: 17px; font-weight: 500;">
+            Phone Number: {{this.rowData.user.phoneNo}} </p>
+        <p class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2" style="font-size: 17px; font-weight: 500;">
+            Email Address: {{this.rowData.user.email}}</p>
+        <p class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2" style="font-size: 17px; font-weight: 500">
+            Driver Location: {{this.rowData.user.location}}</p>
+        <p class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2" style="font-size: 17px; font-weight: 500">
+            Number Plate: {{this.rowData.numberPlate}}</p>
+    </div>
+</div>

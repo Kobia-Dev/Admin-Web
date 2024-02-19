@@ -1,0 +1,73 @@
+<section class="content">
+        <div class="content-block">
+            <div class="block-header">
+                <app-breadcrumb [title]="'Transactions'" [items]="['Transactions']" [active_item]="'Manage'">
+                </app-breadcrumb>
+            </div>
+        </div>
+
+        <form class="onboard-form mb-2" [formGroup]="searchForm" style="margin: 30px;" (ngSubmit)="onSubmit()">
+            <div class="row">
+                <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 mb-2">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Transaction Id</mat-label>
+                        <input matInput formControlName="transactionId" required />
+                        <mat-error *ngIf="searchForm.get('transactionId')?.hasError('required')">
+                            Transaction Id is required
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 mb-2">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Select product class</mat-label>
+                        <mat-select formControlName="product" required>
+                            <mat-option value="FARMRODUCTS">Farm products</mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="searchForm.get('role')?.hasError('required')">
+                            Field is required
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 mb-2">
+                    <button class="btn" mat-raised-button [class.auth-spinner]="loading" [disabled]="loading"
+                        [disabled]="!searchForm.valid" type="submit">Search</button>
+                </div>
+
+                <div *ngIf="error" class="alert alert-danger col-xl-3 col-lg-3 col-md-3 col-sm-3 mb-2">{{error}}</div>
+            </div>
+        </form>
+
+        <div *ngIf="ordersFetched" style="margin: 30px;">
+            <div class="row">
+                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 mb-2">
+                    <p class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2" style="margin-bottom: 20px;">Order details
+                    </p>
+                    <p class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">Order Status: {{
+                        this.order.orderStatus }}</p>
+                    <p class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">Total amount: {{this.order.totalAmount}}</p>
+                    <p class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">Is paid: {{this.order.isPaid}}</p>
+                </div>
+                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 mb-2">
+                    <p class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2" style="margin-bottom: 20px;">Buyer</p>
+                    <p class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">Name: {{this.order.user.firstName}}
+                        {{this.order.user.lastName}}</p>
+                    <p class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">Phone: {{this.order.user.phoneNo}}</p>
+                    <p class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">email: {{this.order.user.email}}</p>
+                </div>
+                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 mb-2" style="margin-bottom: 20px;">
+                    <p class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">Seller</p>
+                    <p class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">Name: {{this.person.firstName}}
+                        {{this.person.lastName}}</p>
+                    <p class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">Phone: {{this.person.phoneNo}}</p>
+                    <p class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">email: {{this.person.email}}</p>
+                </div>
+            </div>
+
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 offset-xl-3 offset-lg-3 offset-md-3 offset-sm-3 mb-2">
+                <button class="btn" mat-raised-button color="primary" [disabled]="loading" [disabled]
+                    (click)="completeTransaction()">Complete this transaction</button>
+            </div>
+        </div>
+</section>
