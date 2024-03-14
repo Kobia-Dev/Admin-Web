@@ -30,6 +30,6 @@ export class ManufacturerService {
   }
 
   public getAllManufacturers(): Observable<any>{
-    return this.httpClient.get<any>(`${environment.baseUrl}/api/v1/manufacturers/get/all)`)
+    return this.httpClient.get<any>(`${environment.baseUrl}/api/v1/manufacturers/get/all`)
   }
 }

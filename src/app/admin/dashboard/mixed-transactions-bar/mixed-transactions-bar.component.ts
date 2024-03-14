@@ -4,7 +4,7 @@ import {
   ApexAxisChartSeries,
   ApexChart,
   ApexXAxis,
-  ApexDataLabels,
+  ApexDataLabels, 
   ApexStroke,
   ApexMarkers,
   ApexYAxis,

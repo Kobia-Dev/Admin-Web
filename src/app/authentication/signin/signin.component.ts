@@ -69,7 +69,8 @@ export class SigninComponent
             this.loading = false;
             this.tokenStorage.saveToken(res.entity.access_token);
             this.tokenStorage.saveUser(res.entity);
-            const role = res.entity.role
+            const role = res.entity.role;
+            console.log("entity", res.entity);
             if (role == Role.Admin) {
               console.log("Role:", role);
               this.router.navigate(['/admin/dashboard']);
